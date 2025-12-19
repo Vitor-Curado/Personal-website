@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %} {{ food.title }} {% endblock %}
+
+{% block styles %} <link rel="stylesheet" href="static/food-detail-style.css"> {% endblock %}
+
+{% block content %}
+  <header>
+    <h1> {{ food.title }} </h1>
+    
+    <figure>
+      <img src="{{ url_for('static', filename=food.image) }}" alt="{{ food.title }}">
+      <figcaption> Image of {{ food.title }} </figcaption>
+    </figure>
+  </header>
+
+  <article>
+    <details>
+      <summary> Equipment required </summary>
+      <ul>
+        {% for item in food.equipment %}
+          <li> {{ item }} </li>
+        {% endfor %}
+      </ul>
+    </details>
+
+    <details>
+      <summary> Ingredients </summary>
+      <ul>
+        {% for ingredient in food.ingredients %}
+          <li> {{ ingredient }} </li>
+        {% endfor %}
+      </ul>
+    </details>
+
+    <details>
+      <summary> Preparation Steps </summary>
+      <ol>
+        {% for step in food.steps %}
+          <li> {{ step }} </li>
+        {% endfor %}
+      </ol>
+    </details>
+
+    <footer>
+      <p> Estimated time required: {{ food['estimated-time-required'] }} </p>
+    </footer>
+  </article>
+{% endblock %}

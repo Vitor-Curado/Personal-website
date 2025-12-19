@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %} Food {% endblock %}
+
+{% block styles %} <link rel="stylesheet" href="static/food-style.css"> {% endblock %}
+
+{% block content %}
+<ul id="food-list">
+    {% for food in foods %}
+    <li class="food-card">
+        <a href="{{url_for('food_detail', slug = food.slug)}}"> <strong> {{ food.title }} </strong> </a>
+        <img src="{{ url_for('static', filename = food.image)}}" alt="{{ food.title }}" width="300" height="300"><br>
+    </li>
+    {% else %}
+    <li>No projects yet.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

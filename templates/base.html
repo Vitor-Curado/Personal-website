@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} Placeholder {% endblock %}</title>
+    <link rel="stylesheet" href="/static/base-style.css">
+    {% block styles %}{% endblock %}
+</head>
+<body>
+    <nav>
+        <ul>
+            <li>
+                <a href="{{url_for('home')}}">
+                    <img src="{{url_for('static', filename = 'media/home-icon.png')}}" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="{{url_for('food')}}"> Food </a>
+            </li>
+            <li>
+                <a href="{{url_for('boardgames')}}"> Board games </a>
+            </li>
+            <li>
+                <a href="{{url_for('apps')}}"> Apps </a>
+            </li>
+            <li>
+                <a href="{{url_for('resume')}}"> Resume </a>
+            </li>
+        </ul>
+        <ul class="lang-menu">
+        <li class="lang-trigger">
+            <button aria-label="Choose language">
+                <img src="{{ url_for('static', filename='media/languages/language.png') }}" alt="Languages" />
+            </button>
+            <ul class="lang-dropdown">
+                <li>
+                    <a href="/set_language/en">
+                        <img src="{{ url_for('static', filename='media/languages/britain.png') }}" alt="English" />
+                    </a>
+                </li>
+                <li>
+                    <a href="/set_language/fr">
+                        <img src="{{ url_for('static', filename='media/languages/france.png') }}" alt="Français" />
+                    </a>
+                </li>
+                <li>
+                    <a href="/set_language/pt">
+                        <img src="{{ url_for('static', filename='media/languages/portugal.png') }}" alt="Português" />
+                    </a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    </nav>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>
