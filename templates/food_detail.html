@@ -2,7 +2,8 @@
 
 {% block title %} {{ food.title }} {% endblock %}
 
-{% block styles %} <link rel="stylesheet" href="static/food-detail-style.css"> {% endblock %}
+{% block styles %} <link rel="stylesheet" href="{{ url_for('static', filename='food-detail-style.css') }}"> {% endblock %}
+
 
 {% block content %}
   <header>

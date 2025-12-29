@@ -1,0 +1,32 @@
+songs
+- id
+- title
+- is_instrumental
+- language_id (nullable)
+- is_cover
+
+artists
+- id
+- name
+- gender
+
+song_artists
+- song_id
+- artist_id
+- role
+
+genres
+- id
+- name
+
+song_genres
+- song_id
+- genre_id
+
+instruments
+- id
+- name
+
+song_instruments
+- song_id
+- instrument_id
