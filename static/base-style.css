@@ -6,13 +6,14 @@ body {
 nav {
   display: flex;
   background-color: gainsboro;
-  width: 95vw;
+  width: 95%;
   height: auto;
   margin: 2vh;
   padding: 1vh;
   box-shadow: 5px 5px 5px grey;
   border-radius: 1vh;
   justify-content: space-between;
+  align-self: center;
 }
 
 nav ul {
