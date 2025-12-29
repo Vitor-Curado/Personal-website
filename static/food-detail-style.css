@@ -112,3 +112,39 @@ article footer p {
     font-size: 1rem;
   }
 }
+
+/* ===== BACK BUTTON ===== */
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 1rem;
+  text-decoration: none;
+  font-weight: bold;
+  color: #744089;
+  font-size: 1rem;
+  transition: color 0.2s ease;
+}
+
+.back-button:hover {
+  color: #4a2c59;
+}
+
+/* Optional: bigger arrow, nicer balance */
+.back-button::before {
+  content: "←";
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+@media (max-width: 600px) {
+  .back-button {
+    top: 0.5rem;
+    left: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .back-button::before {
+    font-size: 1.2rem;
+  }
+}

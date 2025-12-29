@@ -5,6 +5,15 @@
 {% block styles %} <link rel="stylesheet" href="static/food-style.css"> {% endblock %}
 
 {% block content %}
+
+<nav>
+    <!-- Search bar -->
+    <form action="{{ url_for('food') }}" method="get">
+        <input type="text" name="q" placeholder="Search recipes..." value="{{ request.args.get('q', '') }}">
+        <button type="submit">Search</button>
+    </form>
+</nav>
+
 <ul id="food-list">
     {% for food in foods %}
     <li class="food-card">

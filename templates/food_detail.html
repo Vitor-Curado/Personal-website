@@ -6,6 +6,11 @@
 
 
 {% block content %}
+
+  <a href="{{ request.referrer or url_for('index') }}" class="back-button" aria-label="Go back">
+    Back
+  </a>
+
   <header>
     <h1> {{ food.title }} </h1>
     
