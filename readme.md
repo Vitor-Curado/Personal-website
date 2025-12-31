@@ -1,4 +1,4 @@
-# Victor's personal website
+# 📘 Victor's personal website
 This is my personal website for very practical purposes not limited to demonstrating programming expertise.
 
 ## 🌐 Sections of the website
@@ -26,7 +26,7 @@ This is fairly straight-forward. Having a personal website is also very good for
 ### Software
 A software person makes software. Having a section simply to showcase my software sounds like a reasonable idea.
 
-## About the website
+## ⚙️ Technical overview
 ### Technology stack
 Python, Flask, HTML, CSS. DB yet to be implemented. 
 

@@ -15,14 +15,85 @@
     </section>
 </nav>
 
-<ul id="food-list">
-    {% for food in foods %}
-    <li class="food-card">
-        <a href="{{url_for('food_detail', slug = food.slug)}}"> <strong> {{ food.title }} </strong> </a>
-        <img src="{{ url_for('static', filename = food.image)}}" alt="{{ food.title }}" width="300" height="300"><br>
-    </li>
-    {% else %}
-    <li>No projects yet.</li>
-    {% endfor %}
-</ul>
+<section id="food-section">
+
+    <!-- Filtering options -->
+    <nav class="filtering-container">
+        <aside class="filter-sidebar" id="filters">
+            <button class="filters-toggle" aria-expanded="true">
+                Filters
+            </button>
+
+            <div class="filters-content">
+                <!-- Equipment -->
+                <section class="filter-group">
+                <h4>Equipment</h4>
+
+                <label class="filter-option">
+                    <input type="checkbox" value="pan">
+                    <span>Pan</span>
+                </label>
+
+                <label class="filter-option">
+                    <input type="checkbox" value="oven">
+                    <span>Oven</span>
+                </label>
+
+                <label class="filter-option">
+                    <input type="checkbox" value="grill">
+                    <span>Grill</span>
+                </label>
+                </section>
+
+                <!-- Region / Civilization -->
+                <section class="filter-group">
+                <h4>Region</h4>
+
+                <label class="filter-option with-image">
+                    <input type="checkbox" value="roman">
+                    <img src="/static/img/roman.png" alt="Roman">
+                    <span>Roman</span>
+                </label>
+
+                <label class="filter-option with-image">
+                    <input type="checkbox" value="chinese">
+                    <img src="/static/img/chinese.png" alt="Chinese">
+                    <span>Chinese</span>
+                </label>
+                </section>
+            </div>
+        </aside>
+    </nav>
+
+    <ul id="food-list">
+        {% for food in foods %}
+        <li class="food-card">
+            <a href="{{url_for('food_detail', slug = food.slug)}}"> <strong> {{ food.title }} </strong> </a>
+            <img src="{{ url_for('static', filename = food.image)}}" alt="{{ food.title }}" width="300" height="300"><br>
+        </li>
+        {% else %}
+        <li>No projects yet.</li>
+        {% endfor %}
+    </ul>
+</section>
+
+<script>
+  const sidebar = document.getElementById("filters");
+  const toggle = sidebar.querySelector(".filters-toggle");
+  const inputs = sidebar.querySelectorAll("input[type='checkbox']");
+
+  inputs.forEach(input => {
+    input.addEventListener("change", () => {
+      sidebar.classList.add("collapsed");
+      toggle.setAttribute("aria-expanded", "false");
+    });
+  });
+
+  toggle.addEventListener("click", () => {
+    sidebar.classList.toggle("collapsed");
+    const expanded = !sidebar.classList.contains("collapsed");
+    toggle.setAttribute("aria-expanded", expanded);
+  });
+</script>
+
 {% endblock %}
