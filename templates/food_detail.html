@@ -15,7 +15,7 @@
     <h1> {{ food.title }} </h1>
     
     <figure>
-      <img src="{{ url_for('static', filename=food.image) }}" alt="{{ food.title }}">
+      <img src="{{ url_for('static', filename=food.image_gallery[0]) }}" alt="{{ food.title }}">
       <figcaption> Image of {{ food.title }} </figcaption>
     </figure>
   </header>
@@ -33,7 +33,7 @@
     <details>
       <summary> Ingredients </summary>
       <ul>
-        {% for ingredient in food.ingredients %}
+        {% for ingredient in food.main_ingredients %}
           <li> {{ ingredient }} </li>
         {% endfor %}
       </ul>
@@ -42,14 +42,14 @@
     <details>
       <summary> Preparation Steps </summary>
       <ol>
-        {% for step in food.steps %}
+        {% for step in food.cooking_instructions %}
           <li> {{ step }} </li>
         {% endfor %}
       </ol>
     </details>
 
     <footer>
-      <p> Estimated time required: {{ food['estimated-time-required'] }} </p>
+      <p> Estimated time required: {{ food.estimated_time_required_in_minutes }} minutes </p>
     </footer>
   </article>
 {% endblock %}
