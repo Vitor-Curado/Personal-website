@@ -32,7 +32,7 @@ A software person makes software. Having a section simply to showcase my softwar
 Python, Flask, HTML, CSS. DB yet to be implemented. 
 
 ### Constraints
-Currently, I'm using stock images, but futurely I'll use real pictures. No videos will be hosted, only links and descriptions. I also hate using <div> in my code, which should be very clear I hate divs.
+Currently, I'm using stock images, but futurely I'll use real pictures. No videos will be hosted, only links and descriptions. I also hate using <div> in my code, which should be very clear I hate divs, 
 
 ### Installation steps
 WIP. 
