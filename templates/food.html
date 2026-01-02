@@ -68,9 +68,15 @@
     <ul id="food-list">
         {% for food in foods %}
         <li class="food-card">
-            <img src="{{ url_for('static', filename = food.image)}}" alt="{{ food.title }}" width="300" height="300"><br>
+            <img src="{{ url_for('static', filename = food.image_gallery[0])}}" alt="{{ food.title }}" width="300" height="300"><br>
             <a href="{{url_for('food_detail', slug = food.slug)}}"> <strong> {{ food.title }} </strong> </a>
-            <h6> {{ food.health_profile }} </h6>
+            <span> {{food.estimated_time_required_in_minutes}} minutes </span>
+            <span> {{ food.health_profile }} </span>
+            <span> {{ food.recipe_type }}</span>
+            <span> {{ food.cooking_method }} </span>
+            <span> {{ food.main_cooking_apparatus }} </span>
+            <span> {{ food.origin_of_recipe_image_icon }} </span>
+            <span> {{ food.origin_of_recipe }} </span>
         </li>
         {% else %}
         <li>No projects yet.</li>

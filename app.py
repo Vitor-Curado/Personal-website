@@ -18,28 +18,23 @@ foods = [
     {
         "title": "Soft-boiled Eggs",
         "slug": "soft-boiled-eggs",
-        "image": "media/perfectly-runny-soft-boiled-eggs.jpg",
-        "main-ingredients": [
+        "image_gallery": ["media/perfectly-runny-soft-boiled-eggs.jpg"],
+        "main_ingredients": [
             "Eggs",
             "Water",
             "Salt"
         ],
-        "pairs-well-with": [
-            "Meats",
-            "Cheese",
-            "Butter"
-        ],
         "cooking_method": "boiling",
-        "main_cooking_apparatus": "stove",
+        "main_cooking_apparatus": "pot",
         "equipment":[
             "Pot",
             "Tongs",
             "Bowl"
         ],
         "estimated_time_required_in_minutes": 10,
-        "one_serving_is": "1 egg",
+        "one_serving_visual_reference": "1 egg",
         "one_serving_equivalent_in_grams": 50,
-        "instructions": [
+        "cooking_instructions": [
             "Place eggs in an empty pot",
             "Fill pot with enough water to cover eggs by about an inch",
             "Place pot on stove and bring water to a boil",
@@ -50,7 +45,7 @@ foods = [
             "Gently tap the eggs on a hard surface to crack the shell, then peel",
             "Sprinkle with salt and enjoy"
         ],
-        "diet": [
+        "diet_friendly_to": [
             "low-carb",
             "keto",
             "keto-friendly",
@@ -67,7 +62,9 @@ foods = [
             "Rich in choline which is important for brain health",
             "Contains lutein and zeaxanthin which are important for eye health"
         ],
-        "notorious_nutrient_deficiencies": [ "Ascorbic acid (vitamin C)" ],
+        "notorious_nutrient_deficiencies": [
+            "Ascorbic acid (vitamin C)"
+        ],
         "nutritional_information_per_serving": {
             "protein_in_grams": 6,
             "total_fat_in_grams": 5,
@@ -83,11 +80,276 @@ foods = [
         "origin_of_recipe_image_icon": "imagine an image here",
         "references_if_any": "imagine I got this from a cookbook"
     },
-    { "title": "Pan-fried burgers patties", "slug": "pan-fried-burger-patties", "image": "media/pan-fried-burgers.jpg", "ingredients": ["ground beef", "salt", "animal fat (for greasing the skillet)"], "equipment": ["woodboard", "skillet", "spatula"], "steps": ["Form patties", "salt patties", "Heat skillet over medium-high heat", "Cook patties for 4 minutes on each side"], "estimated-time-required": "30 minutes", "diet": ["carnivore", "keto", "low-carb"], "tags": ["BBQ", "Meat"] },
-    { "title": "Scrambled eggs", "slug": "scrambled-eggs" ,"image": "media/scrambled-eggs.jpg", "ingredients": ["eggs", "butter", "salt"], "equipment": ["bowl", "fork", "skillet", "spatula"], "steps": ["Crack eggs into bowl", "Whisk eggs", "Melt butter in skillet", "Pour eggs into skillet", "Cook while stirring until fluffy"], "estimated-time-required": "15 minutes", "diet": ["vegetarian", "low-carb", "carnivore", "keto"] },
-    { "title": "Italian pork sausage", "slug": "italian-pork-sausage","image": "media/italian-pork-sausage.jpg", "ingredients": ["pork sausages"], "equipment": ["skillet", "tongs"], "steps": ["Heat skillet over medium heat", "Add sausage links", "Cook, turning occasionally, until browned and cooked through"], "estimated-time-required": "25 minutes", "diet": ["carnivore", "keto", "low-carb"] },
-    { "title": "Medovik", "slug": "medovik", "image": "media/medovik.jpg", "ingredients": ["honey", "flour", "eggs", "sugar", "butter", "sour cream"], "equipment": ["mixing bowls", "whisk", "baking pans", "oven"], "steps": ["Prepare the dough", "Bake the layers", "Prepare the cream", "Assemble the cake", "Chill before serving"], "estimated-time-required": "4 hours", "diet": ["vegetarian"] },
-    { "title": "Cheesecake", "slug": "cheesecake", "image": "media/cheesecake.jpg", "ingredients": ["cream cheese", "sweetener", "eggs"], "equipment": ["mixing bowl", "springform pan", "oven"], "steps": ["Prepare the crust", "Mix the filling", "Pour filling into crust", "Bake the cheesecake", "Chill before serving"], "estimated-time-required": "5 hours", "diet": ["vegetarian"] }
+    { 
+        "title": "Pan-fried burgers patties", 
+        "slug": "pan-fried-burger-patties", 
+        "image_gallery": ["media/pan-fried-burgers.jpg"], 
+        "main_ingredients": [
+            "ground beef", 
+            "salt", 
+            "animal fat (for greasing the skillet)"
+        ], 
+        "cooking_method": "frying",
+        "main_cooking_apparatus": "skillet",
+        "equipment": [
+            "woodboard", 
+            "skillet", 
+            "spatula"
+        ], 
+        "estimated_time_required_in_minutes": 30,
+        "one_serving_visual_reference": "1 patty",
+        "one_serving_equivalent_in_grams": 300,
+        "cooking_instructions": [
+            "Form patties",
+            "salt patties",
+            "Heat skillet over medium-high heat", 
+            "Cook patties for 4 minutes on each side"
+        ],  
+        "diet_friendly_to": [
+            "carnivore",
+            "keto",
+            "low-carb"
+        ],
+        "health_profile": "healthy",
+        "health_benefits": [
+            "Rich source of creatine",
+            "High in bioavailable iron",
+            "Rich in B vitamins, especially B12"
+        ],
+        "notorious_nutrient_deficiencies": [
+            "vitamin C",
+            "Cholesterol"
+        ],
+        "nutritional_information_per_serving": {
+            "protein_in_grams": 22,
+            "total_fat_in_grams": 20,
+            "saturated_fat_in_grams": 8,
+            "cholesterol_in_mg": 80,
+            "carbohydrates_in_grams": 0,
+            "fiber_in_grams": 0,
+            "sugar_in_grams": 0
+        },
+        "preparation_style": "simple",
+        "origin_of_recipe": "unknown",
+        "recipe_type": "Everyday cooking",
+        "origin_of_recipe_image_icon": "imagine an image here",
+        "references_if_any": "imagine I got this from a cookbook"
+    },
+    { 
+        "title": "Scrambled eggs",
+        "slug": "scrambled-eggs",
+        "image_gallery": ["media/scrambled-eggs.jpg"],
+        "main_ingredients": [
+            "eggs", 
+            "butter",
+            "salt"
+        ], 
+        "cooking_method": "frying",
+        "main_cooking_apparatus": "skillet",
+        "equipment": [
+            "bowl",
+            "fork",
+            "skillet",
+            "spatula"
+        ], 
+        "estimated_time_required_in_minutes": 10,
+        "one_serving_visual_reference": "6 eggs",
+        "one_serving_equivalent_in_grams": 300,
+        "cooking_instructions": [
+            "Crack eggs into bowl",
+            "Whisk eggs", 
+            "Melt butter in skillet", 
+            "Pour eggs into skillet", 
+            "Cook while stirring until fluffy"
+        ],  
+        "diet_friendly_to": [
+            "vegetarian",
+            "low-carb",
+            "carnivore","keto"
+        ],
+        "health_profile": "healthy",
+        "health_benefits": [
+            "Contains a bit of every single micronutrient your body needs except for vitamin C",
+            "Best quality protein source available",
+            "Rich in choline which is important for brain health",
+            "Contains lutein and zeaxanthin which are important for eye health"
+        ],
+        "notorious_nutrient_deficiencies": [
+            "Ascorbic acid (vitamin C)"
+        ],
+        "nutritional_information_per_serving": {
+            "protein_in_grams": 36,
+            "total_fat_in_grams": 30,
+            "saturated_fat_in_grams": 9,
+            "cholesterol_in_mg": 555,
+            "carbohydrates_in_grams": 2,
+            "fiber_in_grams": 0,
+            "sugar_in_grams": 2
+        },
+        "preparation_style": "simple",
+        "origin_of_recipe": "unknown",
+        "recipe_type": "Everyday cooking",
+        "origin_of_recipe_image_icon": "🇫🇷",
+        "references_if_any": "imagine I got this from a cookbook"
+    },
+    { 
+        "title": "Italian pork sausage",
+        "slug": "italian-pork-sausage",
+        "image_gallery": ["media/italian-pork-sausage.jpg"],
+        "main_ingredients": [
+            "pork sausages"
+        ], 
+        "cooking_method": "frying",
+        "main_cooking_apparatus": "skillet",
+        "equipment": [
+            "skillet",
+            "tongs"
+        ], 
+        "estimated_time_required_in_minutes": 25,
+        "one_serving_visual_reference": "2 sausage links",
+        "one_serving_equivalent_in_grams": 160,
+        "cooking_instructions": [
+            "Heat skillet over medium heat",
+            "Add sausage links",
+            "Cook, turning occasionally, until browned and cooked through"
+        ], 
+        "diet_friendly_to": [
+            "carnivore",
+            "keto",
+            "low-carb"
+        ],
+        "health_profile": "healthy",
+        "health_benefits": [
+            "Rich source of thiamine (vitamin B1)",
+            "Rich source of cholesterol"
+        ],
+        "notorious_nutrient_deficiencies": [
+            "vitamin C"
+        ],
+        "nutritional_information_per_serving": {
+            "protein_in_grams": 14,
+            "total_fat_in_grams": 22,
+            "saturated_fat_in_grams": 8,
+            "cholesterol_in_mg": 60,
+            "carbohydrates_in_grams": 2,
+            "fiber_in_grams": 0,
+            "sugar_in_grams": 0
+        },
+        "preparation_style": "simple",
+        "origin_of_recipe": "unknown",
+        "recipe_type": "Everyday cooking",
+        "origin_of_recipe_image_icon": "🇮🇹",
+        "references_if_any": "imagine I got this from a cookbook"
+    },
+    { 
+        "title": "Medovik",
+        "slug": "medovik",
+        "image_gallery": ["media/medovik.jpg"],
+        "main_ingredients": [
+            "honey",
+            "flour",
+            "eggs",
+            "sugar",
+            "butter",
+            "sour cream"
+        ], 
+        "cooking_method": "baking",
+        "main_cooking_apparatus": "oven",
+        "equipment": [
+            "mixing bowls",
+            "whisk",
+            "baking pans",
+            "oven"
+        ],
+        "estimated_time_required_in_minutes": 240,
+        "one_serving_visual_reference": "1 slice",
+        "one_serving_equivalent_in_grams": 120,
+        "cooking_instructions": [
+            "Prepare the dough", 
+            "Bake the layers",
+            "Prepare the cream",
+            "Assemble the cake",
+            "Chill before serving"
+        ], 
+        "diet_friendly_to": [
+            "vegetarian"
+        ],
+        "health_profile": "indulgent",
+        "health_benefits": [
+            "Good source of joyful moments, specially when shared with loved ones"
+        ],
+        "notorious_nutrient_deficiencies": [
+            "Cholesterol",
+            "vitamins",
+            "minerals",
+        ],
+        "nutritional_information_per_serving": {
+            "protein_in_grams": 3,
+            "total_fat_in_grams": 15,
+            "saturated_fat_in_grams": 9,
+            "cholesterol_in_mg": 50,
+            "carbohydrates_in_grams": 30,
+            "fiber_in_grams": 1,
+            "sugar_in_grams": 20
+        },
+        "preparation_style": "elaborate",
+        "origin_of_recipe": "Russia",
+        "recipe_type": "Dessert",
+        "origin_of_recipe_image_icon": "🇷🇺",
+        "references_if_any": "imagine I got this from a cookbook"
+    },
+    { 
+        "title": "Cheesecake",
+        "slug": "cheesecake",
+        "image_gallery": ["media/cheesecake.jpg"],
+        "main_ingredients": [
+            "cream cheese",
+            "sweetener",
+            "eggs"
+        ],
+        "cooking_method": "baking",
+        "main_cooking_apparatus": "oven",
+        "equipment": [
+            "mixing bowl",
+            "springform pan",
+            "oven"
+        ],
+        "estimated_time_required_in_minutes": 300,
+        "one_serving_visual_reference": "1 slice",
+        "one_serving_equivalent_in_grams": 150,
+        "cooking_instructions": [
+            "Prepare the crust",
+            "Mix the filling",
+            "Pour filling into crust",
+            "Bake the cheesecake",
+            "Chill before serving"
+        ],
+        "diet_friendly_to": [
+            "vegetarian"
+        ],
+        "health_profile": "indulgent",
+        "health_benefits": [
+            "Good source of joy when shared with friends and family"
+        ],
+        "notorious_nutrient_deficiencies": [
+            "vitamins",
+            "minerals"
+        ],
+        "nutritional_information_per_serving": {
+            "protein_in_grams": 6,
+            "total_fat_in_grams": 25,
+            "saturated_fat_in_grams": 15,
+            "cholesterol_in_mg": 80,
+            "carbohydrates_in_grams": 20,
+            "fiber_in_grams": 0,
+            "sugar_in_grams": 15
+        },
+        "preparation_style": "elaborate",
+        "origin_of_recipe": "unknown",
+        "recipe_type": "Dessert",
+        "origin_of_recipe_image_icon": "imagine an image here",
+        "references_if_any": "imagine I got this from a cookbook"
+    }
 
 ]
 
