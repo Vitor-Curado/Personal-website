@@ -7,7 +7,7 @@
 {% block content %}
 
 <nav>
-    <!-- Search bar -->
+    <!-- Search bar yet to be implemented-->
     <section aria-labelledby="food-search-heading">
         <h3 id="food-search-heading"> Search Recipes </h3>
         
@@ -68,8 +68,9 @@
     <ul id="food-list">
         {% for food in foods %}
         <li class="food-card">
-            <a href="{{url_for('food_detail', slug = food.slug)}}"> <strong> {{ food.title }} </strong> </a>
             <img src="{{ url_for('static', filename = food.image)}}" alt="{{ food.title }}" width="300" height="300"><br>
+            <a href="{{url_for('food_detail', slug = food.slug)}}"> <strong> {{ food.title }} </strong> </a>
+            <h6> {{ food.health_profile }} </h6>
         </li>
         {% else %}
         <li>No projects yet.</li>

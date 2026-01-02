@@ -1,0 +1,133 @@
+{
+    "foods": [
+        {
+        "title": "Soft-boiled Eggs",
+        "image-gallery": ["images/food/soft-boiled-eggs.jpg"],
+        "main-ingredients": [
+            "Eggs",
+            "Water",
+            "Salt"
+        ],
+        "pairs-well-with": [
+            "Meats",
+            "Cheese",
+            "Butter"
+        ],
+        "cooking-method": "boiling",
+        "main-cooking-apparatus": "stove",
+        "equipment":[
+            "Pot",
+            "Tongs",
+            "Bowl"
+        ],
+        "estimated-time-required-in-minutes": 10,
+        "one-serving-is": "1 egg",
+        "one-serving-equivalent-in-grams": 50,
+        "instructions": [
+            "Place eggs in an empty pot",
+            "Fill pot with enough water to cover eggs by about an inch",
+            "Place pot on stove and bring water to a boil",
+            "Leave eggs in boiling water for 2 minutes",
+            "After 2 minutes, turn off the heat and leave it for two more minutes",
+            "After a total of 4 minutes, use tongs to transfer eggs to a bowl of cold water",
+            "Let eggs sit in cold water for at least five minutes to cool down",
+            "Gently tap the eggs on a hard surface to crack the shell, then peel",
+            "Sprinkle with salt and enjoy"
+        ],
+        "diet": [
+            "low-carb",
+            "keto",
+            "keto-friendly",
+            "carnivore",
+            "vegetarian",
+            "gluten-free",
+            "dairy-free",
+            "nut-free"
+        ],
+        "health-profile": "healthy",
+        "health-benefits": [
+            "Contains a bit of every single micronutrient your body needs except for vitamin C",
+            "Best quality protein source available",
+            "Rich in choline which is important for brain health",
+            "Contains lutein and zeaxanthin which are important for eye health"
+        ],
+        "notorious-nutrient-deficiencies": [ "Ascorbic acid (vitamin C)" ],
+        "nutritional-information-per-serving": {
+            "protein-in-grams": 6,
+            "total-fat-in-grams": 5,
+            "saturated-fat-in-grams": 1.5,
+            "cholesterol-in-mg": 185,
+            "carbohydrates-in-grams": 1,
+            "fiber-in-grams": 0,
+            "sugar-in-grams": 0
+        },
+        "preparation-style": "simple",
+        "origin-of-recipe": "unknown",
+        "recipe-type": "Everyday cooking",
+        "origin-of-recipe-image-icon": "imagine an image here",
+        "references-if-any": "imagine I got this from a cookbook"
+        },
+        {
+            "title": "Pan-fried burger patties",
+            "image-gallery": ["images/food/pan-fried-burger-patties.jpg"],
+            "main-ingredients": [
+                "Ground beef",
+                "Salt",
+                "Pepper"
+            ],
+            "pairs-well-with": [
+                "Cheese",
+                "Butter",
+                "Mustard"
+            ],
+            "cooking-method": "pan-frying",
+            "main-cooking-apparatus": "stove",
+            "equipment":[
+                "Frying pan",
+                "Spatula"
+            ],
+            "estimated-time-required-in-minutes": 15,
+            "one-serving-is": "1 patty (150g)",
+            "one-serving-equivalent-in-grams": 150,
+            "instructions": [
+                "Divide ground beef into equal portions and shape into patties",
+                "Season both sides of each patty with salt and pepper",
+                "Heat frying pan over medium-high heat",
+                "Place patties in the hot pan",
+                "Cook for about 4-5 minutes on each side for medium doneness",
+                "Use spatula to flip patties halfway through cooking",
+                "Remove patties from pan and let rest for a few minutes before serving"
+            ],
+            "diet": [
+                "low-carb",
+                "keto",
+                "keto-friendly",
+                "carnivore",
+                "gluten-free",
+                "dairy-free",
+                "nut-free"
+            ],
+            "health-profile": "healthy",
+            "health-benefits": [
+                "Excellent source of high-quality protein",
+                "Rich in iron and zinc which are important for immune function",
+                "Contains B vitamins which are important for energy metabolism"
+            ],
+            "notorious-nutrient-deficiencies": [ "Ascorbic acid (vitamin C)", "Thiamine (vitamin B1)" ],
+            "nutritional-information-per-serving": {
+                "protein-in-grams": 22,
+                "total-fat-in-grams": 15,
+                "saturated-fat-in-grams": 6,
+                "cholesterol-in-mg": 80,
+                "carbohydrates-in-grams": 0,
+                "fiber-in-grams": 0,
+                "sugar-in-grams": 0
+            },
+            "preparation-style": "simple",
+            "origin-of-recipe": "unknown",
+            "recipe-type": "Everyday cooking",
+            "origin-of-recipe-image-icon": "imagine an image here",
+            "references-if-any": "imagine I got this from a cookbook"
+        }
+    ]
+}
