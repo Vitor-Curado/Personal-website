@@ -8,14 +8,15 @@ It's where there will be presentations on each section of the website, showing w
 ### Food
 Largely, I like to cook, and I happen to be a social creature. It is a way for me to give love, and also an index to how much I love someone based on the lengths I take to cook for someone. It's about pleasure, sport, challenging oneself and creativity. I welcome individuals from all ethniticies and preferences, and having a website one could simply enter and see what I can cook turns out to be not only an opportunity to program something, but also solve something rather practical which is showing people what can I cook.
 
-Ways of filtering out food include:
-#### Chef's (me) expertise or familiarity
-#### Nationality (Chinese, Brazilian, Russian, Japanese, Italian) if applicable
-#### Equipment necessary
-#### Time constraints
+#### Ways of filtering
+* Main cooking apparatus: oven, pot, skillet
+* Friendly to specific diets: low-carb, ketogenic, carnivore, vegetarian, vegan, gluten-free, nut-free, dairy-free
+* Cooking method: roasting, boiling, frying
+* If it's healthy or indulgent
+* If it's casual or lavish
 
 ### Board games
-Given my need to entertain, one recurring question I face is prompting people to play board games. Immediately upon prompted, the next question is usually "okay, what board games do you have?" While food requires robust filtering apparatus, given the limited amount of board games I have, it's possible to have a much simpler system for storing board game information and displaying it without requirying filtering logic.
+Given my need to entertain guests, one recurring question I face is prompting people to play board games. Immediately upon prompted, the next question is usually "okay, what board games do you have?" While the "food" section requires robust filtering apparatus and heavy back-end logic, given the limited amount of board games I have, it's possible to have a much simpler system for storing board game information and displaying it without being too complicated.
 
 ### Music
 Again, back to the necessities of an entertainer, a person who receives people often. It's good to have a section that displays playlists I have for better at-the-moment communication purposes.
@@ -31,7 +32,7 @@ A software person makes software. Having a section simply to showcase my softwar
 Python, Flask, HTML, CSS. DB yet to be implemented. 
 
 ### Constraints
-Currently, I'm using stock images, but futurely I'll use real pictures. No videos will be hosted, only links and descriptions.
+Currently, I'm using stock images, but futurely I'll use real pictures. No videos will be hosted, only links and descriptions. I also hate using <div> in my code, which should be very clear I hate divs.
 
 ### Installation steps
 WIP. 
