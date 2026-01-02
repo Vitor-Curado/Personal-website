@@ -37,6 +37,19 @@ Currently, I'm using stock images, but futurely I'll use real pictures. No video
 ### Installation steps
 WIP. 
 
+### Running commands
+To run this application, do: 
+
+```
+source "/Personal-website/.venv/bin/activate"
+```
+
+Having activated python's virtual environment successfully, run:
+
+```
+python app.py
+```
+
 ### Notes
 I always felt forced to using frameworks and libraries which most of the time were slowing me down rather than helping me. I would spend more time trying to figure out the framework shenanigans when I knew what I needed to do with raw CSS (I'm particularly referring to style-focused libraries). I always felt I needed to use cool technology to be part of the cool kids, I'm slowly realizing I need to make cool stuff to be between the cool kids.
 
