@@ -49,7 +49,13 @@
     </details>
 
     <footer>
-      <p> Estimated time required: {{ food.estimated_time_required_in_minutes }} minutes </p>
+      <p> Estimated time required: 
+        {% if food.estimated_time_required_in_minutes < 60 %}
+          {{ food.estimated_time_required_in_minutes }} min
+        {% else %}
+            {{ food.estimated_time_required_in_minutes // 60 }}h {% if food.estimated_time_required_in_minutes > 0 %} {{ food.estimated_time_required_in_minutes % 60 }}min{% endif %}
+        {% endif %} 
+      </p>
     </footer>
   </article>
 {% endblock %}

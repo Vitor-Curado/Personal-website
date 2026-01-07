@@ -17,51 +17,7 @@
 
 <section class="main-container">
     <!-- Filtering options -->
-    <nav class="filtering-container">
-        <aside class="filter-sidebar" id="filters">
-            <button class="filters-toggle" aria-expanded="true">
-                Filters
-            </button>
-
-            <div class="filters-content">
-                <!-- Equipment -->
-                <section class="filter-group">
-                <h4>Equipment</h4>
-
-                <label class="filter-option">
-                    <input type="checkbox" value="pan">
-                    <span>Pan</span>
-                </label>
-
-                <label class="filter-option">
-                    <input type="checkbox" value="oven">
-                    <span>Oven</span>
-                </label>
-
-                <label class="filter-option">
-                    <input type="checkbox" value="grill">
-                    <span>Grill</span>
-                </label>
-                </section>
-
-                <!-- Region / Civilization -->
-                <section class="filter-group">
-                <h4>Region</h4>
-
-                <label class="filter-option with-image">
-                    <input type="checkbox" value="roman">
-                    <img src="/static/img/roman.png" alt="Roman">
-                    <span>Roman</span>
-                </label>
-
-                <label class="filter-option with-image">
-                    <input type="checkbox" value="chinese">
-                    <img src="/static/img/chinese.png" alt="Chinese">
-                    <span>Chinese</span>
-                </label>
-                </section>
-            </div>
-        </aside>
+    <nav class="filtering-sidebar">
     </nav>
 
     <ul id="food-list">
@@ -70,21 +26,17 @@
             <img src="{{ url_for('static', filename = food.image_gallery[0])}}" alt="{{ food.title }}" width="300" height="300"><br>
             <a href="{{url_for('food_detail', slug = food.slug)}}"> <strong> {{ food.title }} </strong> </a>
             <ul id="stats">
-                {% if food.estimated_time_required_in_minutes < 60 %}
-  {{ food.estimated_time_required_in_minutes }} min
-{% else %}
-  {% set total = food.estimated_time_required_in_minutes %}
-  {% set hours = total // 60 %}
-  {% set minutes = total % 60 %}
-
-  {{ hours }}h{% if minutes > 0 %} {{ minutes }}min{% endif %}
-{% endif %}
-
-                <!-- <li> {{food.estimated_time_required_in_minutes}} minutes </li>
+                <li>
+                    {% if food.estimated_time_required_in_minutes < 60 %}
+                        {{ food.estimated_time_required_in_minutes }} min
+                    {% else %}
+                        {{ food.estimated_time_required_in_minutes // 60 }}h {% if food.estimated_time_required_in_minutes > 0 %} {{ food.estimated_time_required_in_minutes % 60 }}min{% endif %}
+                    {% endif %}
+                </li>
                 <li> {{ food.health_profile }} </li>
-                <li> {{ food.recipe_type }}</li>
                 <li> {{ food.cooking_method }} </li>
-                <li> {{ food.main_cooking_apparatus }} </li> -->
+                <li> {{ food.main_cooking_apparatus }} </li>
+                <li> {{ food.recipe_type }}</li>
             </ul>
         </li>
         {% else %}

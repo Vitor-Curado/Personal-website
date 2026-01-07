@@ -76,7 +76,7 @@ foods = [
         },
         "preparation_style": "simple",
         "origin_of_recipe": "unknown",
-        "recipe_type": "Everyday cooking",
+        "recipe_type": "Casual",
         "origin_of_recipe_image_icon": "imagine an image here",
         "references_if_any": "imagine I got this from a cookbook"
     },
@@ -131,7 +131,7 @@ foods = [
         },
         "preparation_style": "simple",
         "origin_of_recipe": "unknown",
-        "recipe_type": "Everyday cooking",
+        "recipe_type": "Casual",
         "origin_of_recipe_image_icon": "imagine an image here",
         "references_if_any": "imagine I got this from a cookbook"
     },
@@ -188,7 +188,7 @@ foods = [
         },
         "preparation_style": "simple",
         "origin_of_recipe": "unknown",
-        "recipe_type": "Everyday cooking",
+        "recipe_type": "Casual",
         "origin_of_recipe_image_icon": "🇫🇷",
         "references_if_any": "imagine I got this from a cookbook"
     },
@@ -237,7 +237,7 @@ foods = [
         },
         "preparation_style": "simple",
         "origin_of_recipe": "unknown",
-        "recipe_type": "Everyday cooking",
+        "recipe_type": "Casual",
         "origin_of_recipe_image_icon": "🇮🇹",
         "references_if_any": "imagine I got this from a cookbook"
     },
@@ -314,7 +314,7 @@ foods = [
             "springform pan",
             "oven"
         ],
-        "estimated_time_required_in_minutes": 300,
+        "estimated_time_required_in_minutes": 305,
         "one_serving_visual_reference": "1 slice",
         "one_serving_equivalent_in_grams": 150,
         "cooking_instructions": [
