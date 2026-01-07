@@ -261,7 +261,7 @@ foods = [
             "baking pans",
             "oven"
         ],
-        "estimated_time_required_in_minutes": 240,
+        "estimated_time_required_in_minutes": 260,
         "one_serving_visual_reference": "1 slice",
         "one_serving_equivalent_in_grams": 120,
         "cooking_instructions": [

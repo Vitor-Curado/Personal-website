@@ -6,7 +6,7 @@
 
 {% block content %}
 
-<nav>
+<nav class="search-bar">
     <!-- Search bar yet to be implemented-->
     <section aria-labelledby="food-search-heading">
         <h3 id="food-search-heading"> Search Recipes </h3>
@@ -15,8 +15,7 @@
     </section>
 </nav>
 
-<section id="food-section">
-
+<section class="main-container">
     <!-- Filtering options -->
     <nav class="filtering-container">
         <aside class="filter-sidebar" id="filters">
@@ -70,13 +69,23 @@
         <li class="food-card">
             <img src="{{ url_for('static', filename = food.image_gallery[0])}}" alt="{{ food.title }}" width="300" height="300"><br>
             <a href="{{url_for('food_detail', slug = food.slug)}}"> <strong> {{ food.title }} </strong> </a>
-            <span> {{food.estimated_time_required_in_minutes}} minutes </span>
-            <span> {{ food.health_profile }} </span>
-            <span> {{ food.recipe_type }}</span>
-            <span> {{ food.cooking_method }} </span>
-            <span> {{ food.main_cooking_apparatus }} </span>
-            <span> {{ food.origin_of_recipe_image_icon }} </span>
-            <span> {{ food.origin_of_recipe }} </span>
+            <ul id="stats">
+                {% if food.estimated_time_required_in_minutes < 60 %}
+  {{ food.estimated_time_required_in_minutes }} min
+{% else %}
+  {% set total = food.estimated_time_required_in_minutes %}
+  {% set hours = total // 60 %}
+  {% set minutes = total % 60 %}
+
+  {{ hours }}h{% if minutes > 0 %} {{ minutes }}min{% endif %}
+{% endif %}
+
+                <!-- <li> {{food.estimated_time_required_in_minutes}} minutes </li>
+                <li> {{ food.health_profile }} </li>
+                <li> {{ food.recipe_type }}</li>
+                <li> {{ food.cooking_method }} </li>
+                <li> {{ food.main_cooking_apparatus }} </li> -->
+            </ul>
         </li>
         {% else %}
         <li>No projects yet.</li>
