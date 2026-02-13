@@ -8,45 +8,48 @@
     {% block styles %}{% endblock %}
 </head>
 <body>
-    <nav>
+    <nav class="main-nav-bar">
         <ul>
             <li>
-                <a href="{{url_for('home')}}">
-                    <img src="{{url_for('static', filename = 'media/home-icon.png')}}" alt="">
+                <a href="">
+                    <img src="/static/media/home-icon.png" alt="">
                 </a>
             </li>
             <li>
-                <a href="{{url_for('food')}}"> Food </a>
+                <a href="/food"> Food </a>
             </li>
             <li>
-                <a href="{{url_for('boardgames')}}"> Board games </a>
+                <a href="/boardgames"> Board games </a>
             </li>
             <li>
-                <a href="{{url_for('apps')}}"> Apps </a>
+                <a href="/apps"> Apps </a>
             </li>
             <li>
-                <a href="{{url_for('resume')}}"> Resume </a>
+                <a href="/resume"> Resume </a>
             </li>
         </ul>
+        <a href="">
+            <img src="" alt="">
+        </a>
         <ul class="lang-menu">
         <li class="lang-trigger">
             <button aria-label="Choose language">
-                <img src="{{ url_for('static', filename='media/languages/language.png') }}" alt="Languages" />
+                <img src="/static/media/languages/language.png" alt="Languages" />
             </button>
             <ul class="lang-dropdown">
                 <li>
                     <a href="/set_language/en">
-                        <img src="{{ url_for('static', filename='media/languages/britain.png') }}" alt="English" />
+                        <img src="/static/media/languages/britain.png" alt="English" />
                     </a>
                 </li>
                 <li>
                     <a href="/set_language/fr">
-                        <img src="{{ url_for('static', filename='media/languages/france.png') }}" alt="Français" />
+                        <img src="/static/media/languages/france.png" alt="Français" />
                     </a>
                 </li>
                 <li>
                     <a href="/set_language/pt">
-                        <img src="{{ url_for('static', filename='media/languages/portugal.png') }}" alt="Português" />
+                        <img src="/static/media/languages/portugal.png" alt="Português" />
                     </a>
                 </li>
             </ul>

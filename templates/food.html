@@ -2,7 +2,7 @@
 
 {% block title %} Food {% endblock %}
 
-{% block styles %} <link rel="stylesheet" href="static/food-style.css"> {% endblock %}
+{% block styles %} <link rel="stylesheet" href="/static/food-style.css"> {% endblock %}
 
 {% block content %}
 
@@ -23,20 +23,18 @@
     <ul id="food-list">
         {% for food in foods %}
         <li class="food-card">
-            <img src="{{ url_for('static', filename = food.image_gallery[0])}}" alt="{{ food.title }}" width="300" height="300"><br>
-            <a href="{{url_for('food_detail', slug = food.slug)}}"> <strong> {{ food.title }} </strong> </a>
+            <img src="/static/media/{{ food.image_gallery[0] }}" alt="{{ food.title }}" width="300" height="300"><br>
+            <a href=""> <strong> {{ food.title }} </strong> </a>
             <ul id="stats">
                 <li>
                     {% if food.estimated_time_required_in_minutes < 60 %}
                         {{ food.estimated_time_required_in_minutes }} min
                     {% else %}
-                        {{ food.estimated_time_required_in_minutes // 60 }}h {% if food.estimated_time_required_in_minutes > 0 %} {{ food.estimated_time_required_in_minutes % 60 }}min{% endif %}
+                        {{ food.estimated_time_required_in_minutes / 60 }}h {% if food.estimated_time_required_in_minutes > 0 %} {{ food.estimated_time_required_in_minutes % 60 }}min{% endif %}
                     {% endif %}
                 </li>
                 <li> {{ food.health_profile }} </li>
                 <li> {{ food.cooking_method }} </li>
-                <li> {{ food.main_cooking_apparatus }} </li>
-                <li> {{ food.recipe_type }}</li>
             </ul>
         </li>
         {% else %}

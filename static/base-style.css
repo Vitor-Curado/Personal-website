@@ -3,10 +3,10 @@ body {
   font-family: sans-serif;
 }
 
-nav {
+nav.main-nav-bar {
   display: flex;
   background-color: gainsboro;
-  width: 95%;
+  width: 95.6%;
   height: auto;
   margin: 2vh;
   padding: 1vh;
@@ -46,8 +46,7 @@ input, button {
   position: relative;
   display: inline-block;
   padding: 0;
-  margin: 0;
-  margin-right: 1rem;
+  margin: 0.5em;
 }
 
 .lang-menu > .lang-trigger > button {

@@ -2,12 +2,12 @@
 
 {% block title %} {{ food.title }} {% endblock %}
 
-{% block styles %} <link rel="stylesheet" href="{{ url_for('static', filename='food-detail-style.css') }}"> {% endblock %}
+{% block styles %} <link rel="stylesheet" href="/static/food-detail-style.css"> {% endblock %}
 
 
 {% block content %}
 
-  <a href="{{ request.referrer or url_for('index') }}" class="back-button" aria-label="Go back">
+  <a href="" class="back-button" aria-label="Go back">
     Back
   </a>
 
@@ -15,7 +15,7 @@
     <h1> {{ food.title }} </h1>
     
     <figure>
-      <img src="{{ url_for('static', filename=food.image_gallery[0]) }}" alt="{{ food.title }}">
+      <img src="" alt="{{ food.title }}">
       <figcaption> Image of {{ food.title }} </figcaption>
     </figure>
   </header>
@@ -53,7 +53,7 @@
         {% if food.estimated_time_required_in_minutes < 60 %}
           {{ food.estimated_time_required_in_minutes }} min
         {% else %}
-            {{ food.estimated_time_required_in_minutes // 60 }}h {% if food.estimated_time_required_in_minutes > 0 %} {{ food.estimated_time_required_in_minutes % 60 }}min{% endif %}
+            {{ food.estimated_time_required_in_minutes / 60 }}h {% if food.estimated_time_required_in_minutes > 0 %} {{ food.estimated_time_required_in_minutes % 60 }}min{% endif %}
         {% endif %} 
       </p>
     </footer>

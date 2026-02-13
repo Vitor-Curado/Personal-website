@@ -1,0 +1,14 @@
+/home/bucko/Documents/Bucko's proprietary software/Personal-website/target/debug/deps/serde-f9bf3439c80acf3a.d: /home/bucko/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/lib.rs /home/bucko/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/integer128.rs /home/bucko/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/mod.rs /home/bucko/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/de.rs /home/bucko/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/ser.rs /home/bucko/Documents/Bucko's\ proprietary\ software/Personal-website/target/debug/build/serde-711b2af9c84f032c/out/private.rs
+
+/home/bucko/Documents/Bucko's proprietary software/Personal-website/target/debug/deps/libserde-f9bf3439c80acf3a.rlib: /home/bucko/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/lib.rs /home/bucko/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/integer128.rs /home/bucko/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/mod.rs /home/bucko/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/de.rs /home/bucko/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/ser.rs /home/bucko/Documents/Bucko's\ proprietary\ software/Personal-website/target/debug/build/serde-711b2af9c84f032c/out/private.rs
+
+/home/bucko/Documents/Bucko's proprietary software/Personal-website/target/debug/deps/libserde-f9bf3439c80acf3a.rmeta: /home/bucko/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/lib.rs /home/bucko/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/integer128.rs /home/bucko/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/mod.rs /home/bucko/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/de.rs /home/bucko/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/ser.rs /home/bucko/Documents/Bucko's\ proprietary\ software/Personal-website/target/debug/build/serde-711b2af9c84f032c/out/private.rs
+
+/home/bucko/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/lib.rs:
+/home/bucko/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/integer128.rs:
+/home/bucko/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/mod.rs:
+/home/bucko/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/de.rs:
+/home/bucko/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/ser.rs:
+/home/bucko/Documents/Bucko's\ proprietary\ software/Personal-website/target/debug/build/serde-711b2af9c84f032c/out/private.rs:
+
+# env-dep:OUT_DIR=/home/bucko/Documents/Bucko's proprietary software/Personal-website/target/debug/build/serde-711b2af9c84f032c/out
