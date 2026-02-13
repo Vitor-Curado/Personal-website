@@ -8,6 +8,9 @@ use axum::{
     Router,
 };
 
+use tokio::net::UnixListener;
+use std::path::Path;
+
 use std::net::SocketAddr;
 use tower_http::services::ServeDir;
 
@@ -19,6 +22,7 @@ use crate::routes::{ home, food, food_detail, boardgames, resume, apps };
 
 #[tokio::main]
 async fn main() {
+
     let app = Router::new()
         .route("/", get(home))
         .route("/food", get(food))
@@ -29,9 +33,15 @@ async fn main() {
         .nest_service("/static", ServeDir::new("static"))
         .nest_service("/media", ServeDir::new("media"));
 
-    let addr = SocketAddr::from(([127, 0, 0, 1], 8000));
-    println!("🚀 Server running at http://{}", addr);
 
-    let listener = tokio::net::TcpListener::bind(addr).await.unwrap();
+    let socket_path = "/run/Personal-website/gunicorn.sock";
+
+    if Path::new(socket_path).exists() {
+        std::fs::remove_file(socket_path).unwrap();
+    }
+
+    println!("🚀 Starting server on socket: {}", socket_path);
+    
+    let listener = UnixListener::bind(socket_path).unwrap();
     axum::serve(listener, app).await.unwrap();
 }
