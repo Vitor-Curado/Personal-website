@@ -3,18 +3,10 @@ mod routes;
 mod data;
 mod templates;
 
-use axum::{
-    routing::get,
-    Router,
-};
-
-use tokio::net::UnixListener;
-use std::path::Path;
-
-use std::net::SocketAddr;
-use tower_http::services::ServeDir;
-
+use axum::{ routing::get, Router };
+use tokio::net::TcpListener;
 use crate::routes::{ home, food, food_detail, boardgames, resume, apps };
+use tower_http::services::ServeDir;
 
 /* ------------------------
    Main
@@ -33,15 +25,8 @@ async fn main() {
         .nest_service("/static", ServeDir::new("static"))
         .nest_service("/media", ServeDir::new("media"));
 
+    let listener = TcpListener::bind("127.0.0.1:3000").await.unwrap();
+    println!("🚀 Listening on http://{}", listener.local_addr().unwrap());
 
-    let socket_path = "/run/Personal-website/gunicorn.sock";
-
-    if Path::new(socket_path).exists() {
-        std::fs::remove_file(socket_path).unwrap();
-    }
-
-    println!("🚀 Starting server on socket: {}", socket_path);
-    
-    let listener = UnixListener::bind(socket_path).unwrap();
     axum::serve(listener, app).await.unwrap();
 }
