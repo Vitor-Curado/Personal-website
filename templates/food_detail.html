@@ -7,7 +7,7 @@
 
 {% block content %}
 
-  <a href="" class="back-button" aria-label="Go back">
+  <a href="/food" class="back-button" aria-label="Go back">
     Back
   </a>
 
@@ -15,7 +15,7 @@
     <h1> {{ food.title }} </h1>
     
     <figure>
-      <img src="" alt="{{ food.title }}">
+      <img src="/static/media/{{ food.image_gallery[0] }}" alt="{{ food.title }}">
       <figcaption> Image of {{ food.title }} </figcaption>
     </figure>
   </header>
