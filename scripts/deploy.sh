@@ -9,7 +9,7 @@ cd $SRC_DIR
 git pull
 cargo build --release
 
-sudo cp target/release/Personal-website $BIN_PATH
+sudo cp target/release/$APP_NAME $BIN_PATH
 sudo chmod 755 $BIN_PATH
 
 sudo systemctl restart Personal-website
