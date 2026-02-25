@@ -3,7 +3,10 @@ use axum::{ response::{ Html, IntoResponse }, extract::Path };
 use askama::Template;
 use std::fs;
 use pulldown_cmark::{Parser, html};
-use crate::data::mock_food_data;
+use crate::repository::mock_food_data;
+
+use axum::Json;
+use crate::api::HealthResponse;
 
 fn load_readme() -> String {
     fs::read_to_string("/home/bucko/Documents/Buckos proprietary software/Personal-website/readme.md")
@@ -90,4 +93,10 @@ pub async fn boardgames() -> impl IntoResponse {
         .render()
         .unwrap(),
     )
+}
+
+pub async fn health() -> Json<HealthResponse> {
+    Json(HealthResponse {
+        status: "ok",
+    })
 }

@@ -1,7 +1,3 @@
-/* ------------------------
-   Templates
--------------------------*/
-
 use crate::models::{ Food };
 use askama::Template;
 

@@ -1,11 +1,15 @@
 mod models;
-mod routes;
-mod data;
+mod handlers;
+mod repository;
 mod templates;
+mod api;
+
+#[cfg(test)]
+mod tests;
 
 use axum::{ routing::get, Router };
 use tokio::net::TcpListener;
-use crate::routes::{ home, food, food_detail, boardgames, resume, apps };
+use crate::handlers::{ home, food, food_detail, boardgames, resume, apps, health };
 use tower_http::services::ServeDir;
 
 #[tokio::main]
@@ -18,6 +22,7 @@ async fn main() {
         .route("/boardgames", get(boardgames))
         .route("/resume", get(resume))
         .route("/apps", get(apps))
+        .route("/api/health", get(health))
         .nest_service("/static", ServeDir::new("static"))
         .nest_service("/media", ServeDir::new("media"));
 
