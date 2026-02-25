@@ -1,0 +1,60 @@
+body {
+  background-color: antiquewhite;
+  font-family: sans-serif;
+}
+
+/* Navigation bar related style */
+nav {
+  display: flex;
+  background-color: gainsboro;
+  width: 95vw;
+  height: auto;
+  margin: 2vh;
+  padding: 1vh;
+  box-shadow: 5px 5px 5px grey;
+  border-radius: 1vh;
+  align-self: center;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  gap: 1rem; 
+  margin: 1vh;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+nav ul li, nav ul li a, nav ul li a img {
+  width: auto;
+  height: 1.15em;
+  object-fit: contain;
+  vertical-align: middle;
+  transform: scale(1.1);
+  transition: 0.15s ease-in-out;
+}
+
+h1, h2 {
+  color: #333;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+} 
+
+nav a:hover {
+  color: darkblue;
+}
+
+/* Main content related style */
+main {
+  background-color: thistle;
+  width: 95vw;
+  margin: 2vh;
+  padding: 1vh;
+  box-shadow: 5px 5px 5px grey;
+  border-radius: 10px;
+}

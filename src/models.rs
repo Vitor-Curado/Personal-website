@@ -1,20 +1,4 @@
-/* ------------------------
-   Mock data (minimal)
--------------------------*/
-
 use serde::Serialize;
-
-#[derive(Serialize)]
-pub struct Project {
-    pub title: &'static str,
-    pub description: &'static str,
-}
-
-#[derive(Serialize)]
-pub struct Log {
-    pub message: &'static str,
-    pub timestamp: &'static str,
-}
 
 #[derive(Serialize)]
 pub struct Food {

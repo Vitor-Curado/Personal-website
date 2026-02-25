@@ -1,19 +1,4 @@
-use crate::models::{ Project, Log, Food };
-
-pub static PROJECTS: &[Project] = &[
-    Project {
-        title: "Portfolio Website",
-        description: "A personal portfolio made with Rust.",
-    },
-    Project {
-        title: "Financial stats machine",
-        description: "Aggregate financial data for insights.",
-    },
-];
-
-pub static LOGS: &[Log] = &[
-    Log { message: "Server started", timestamp: "2024-06-01T12:00:00Z" },
-];
+use crate::models::Food;
 
 pub fn mock_food_data() -> Vec<Food> {
     vec![

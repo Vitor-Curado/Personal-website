@@ -1,65 +1,21 @@
 {% extends "base.html" %}
 
-{% block title %} 🍲 Food {% endblock %}
+{% block title %} Food {% endblock %}
 
-{% block styles %} <link rel="stylesheet" href="/static/food-style.css"> {% endblock %}
+{% block styles %} <link rel="stylesheet" href="/static/css/food-style.css"> {% endblock %}
 
 {% block content %}
 
-<nav class="search-bar">
-    <!-- Search bar yet to be implemented-->
-    <section aria-labelledby="food-search-heading">
-        <h3 id="food-search-heading"> Search Recipes </h3>
-        
-        
-    </section>
-</nav>
-
-<section class="main-container">
-    <!-- Filtering options -->
-    <nav class="filtering-sidebar">
-    </nav>
-
+<section>
     <ul id="food-list">
         {% for food in foods %}
         <li class="food-card">
-            <img src="/static/media/{{ food.image_gallery[0] }}" alt="{{ food.title }}" width="300" height="300"><br>
+            <img src="/static/media/food/{{ food.image_gallery[0] }}" alt="{{ food.title }}" width="300" height="300"><br>
             <a href="/food/{{ food.slug }}"> <strong> {{ food.title }} </strong> </a>
-            <ul id="stats">
-                <li>
-                    {% if food.estimated_time_required_in_minutes < 60 %}
-                        {{ food.estimated_time_required_in_minutes }} min
-                    {% else %}
-                        {{ food.estimated_time_required_in_minutes / 60 }}h {% if food.estimated_time_required_in_minutes > 0 %} {{ food.estimated_time_required_in_minutes % 60 }}min{% endif %}
-                    {% endif %}
-                </li>
-                <li> {{ food.health_profile }} </li>
-                <li> {{ food.cooking_method }} </li>
-            </ul>
         </li>
         {% else %}
         <li>No projects yet.</li>
         {% endfor %}
     </ul>
 </section>
-
-<script>
-  const sidebar = document.getElementById("filters");
-  const toggle = sidebar.querySelector(".filters-toggle");
-  const inputs = sidebar.querySelectorAll("input[type='checkbox']");
-
-  inputs.forEach(input => {
-    input.addEventListener("change", () => {
-      sidebar.classList.add("collapsed");
-      toggle.setAttribute("aria-expanded", "false");
-    });
-  });
-
-  toggle.addEventListener("click", () => {
-    sidebar.classList.toggle("collapsed");
-    const expanded = !sidebar.classList.contains("collapsed");
-    toggle.setAttribute("aria-expanded", expanded);
-  });
-</script>
-
 {% endblock %}

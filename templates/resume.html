@@ -1,20 +1,25 @@
 {% extends "base.html" %}
 
-{% block title %} 📄 Resume {% endblock %}
+{% block title %} Resume {% endblock %}
 
 {% block content %}
     <h1> Software developer </h1>
-    <p id="headline"> Problem solver, nerd, tinkerer. </p>
+    <p id="headline"> Junior software developer, Rust enthusiast. Very thoughtful of performance, resource efficiency and code maintainability when I'm not panicking over understanding Rust </p>
+
+    <section class="resume-section">
+        <h2> Education </h2>
+        <h3> Ontario College Diploma, Algonquin College, 2023 - 2025</h3>
+    </section>
 
     <section class="resume-section">
         <h2 class="section-title"> Projects </h2>
         <h3 class="title"> Personal Portfolio Website | Continuous development </h3>
-        <p class="details"> Python | Flask | Jinja2 | HTML | CSS | Nginx | Gunicorn | Linux Fedora Droplet | VS Code </p>
+        <p class="details"> Rust | Axum | Askama | HTML | CSS | Nginx | Linux Fedora Droplet | VS Code </p>
         <p class="summary"> My personal website showcasing my skills and projects. </p>
         <ul class="project-overview">
-            <li> Developed a responsive and visually appealing portfolio website using Flask and Jinja2 templating engine. </li>
+            <li> Developed a responsive and visually appealing portfolio website using Rust and Askama templating engine. </li>
             <li> Implemented dynamic content rendering to showcase projects and skills effectively. </li>
-            <li> Deployed the application using Nginx and Gunicorn for optimal performance and scalability. </li>
+            <li> Deployed the application using Nginx for optimal performance and scalability. </li>
             <li> Ensured cross-browser compatibility and mobile responsiveness through meticulous HTML and CSS design. </li>
         </ul>
         <ul class="project-features">
@@ -95,10 +100,5 @@
         <ul>
             <li> CompTIA A+, 2026 </li>
         </ul>
-    </section>
-
-    <section class="resume-section">
-        <h2> Education </h2>
-        <h3> Ontario College Diploma, Algonquin College, 2023 - 2025</h3>
     </section>
 {% endblock %}

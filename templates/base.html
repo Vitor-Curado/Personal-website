@@ -3,56 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %} Placeholder {% endblock %} </title>
-    <link rel="stylesheet" href="/static/base-style.css">
+    <title> {{ title }} </title>
+    <link rel="icon" type="image/png" href="/static/media/icons/{{ favicon }}">
+    <link rel="stylesheet" href="/static/css/base-style.css">
     {% block styles %}{% endblock %}
 </head>
 <body>
-    <nav class="main-nav-bar">
-        <ul class="left-side-nav">
-            <li class="clickable-link">
-                <a href="/"> 🏡 Home </a>
+    <nav>
+        <ul>
+            <li>
+                <a href="/"> 
+                    <img src="/static/media/icons/home-icon.png" alt="">
+                    Home
+                </a>
             </li>
             <li>
-                <a href="/food"> 🍲 Food </a>
+                <a href="/food"> 
+                    <img src="/static/media/icons/food-icon.png" alt="">
+                    Food
+                </a>
             </li>
             <li>
-                <a href="/boardgames"> 🎲 Board games </a>
+                <a href="/boardgames">
+                    <img src="/static/media/icons/boardgames-icon.png" alt="">
+                    Board games
+                </a>
             </li>
             <li>
-                <a href="/apps"> 📱 Apps </a>
+                <a href="/apps"> 
+                    <img src="/static/media/icons/software-icon.png" alt=""> 
+                    Software 
+                </a>
             </li>
             <li>
-                <a href="/resume"> 📄 Resume </a>
+                <a href="/resume"> 
+                    <img src="/static/media/icons/resume-icon.png" alt="">
+                    Resume 
+                </a>
+            </li>
+            <li>
+                <a href=""> 
+                    <img src="/static/media/icons/blog-icon.png" alt="blog">
+                    Blog
+                </a>
             </li>
         </ul>
-        <a href="">
-            <img src="" alt="">
-        </a>
-        <ul class="lang-menu">
-            <li class="lang-trigger">
-                <button aria-label="Choose language">
-                    <img src="/static/media/languages/language.png" alt="Languages" />
-                </button>
-                <ul class="lang-dropdown">
-                    <li>
-                        <a href="">
-                            <img src="/static/media/languages/britain.png" alt="English" />
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <img src="/static/media/languages/france.png" alt="Français" />
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <img src="/static/media/languages/portugal.png" alt="Português" />
-                        </a>
-                    </li>
-                </ul>
-            </li>
-    </ul>
     </nav>
     <main>
         {% block content %}{% endblock %}

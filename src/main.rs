@@ -8,10 +8,6 @@ use tokio::net::TcpListener;
 use crate::routes::{ home, food, food_detail, boardgames, resume, apps };
 use tower_http::services::ServeDir;
 
-/* ------------------------
-   Main
--------------------------*/
-
 #[tokio::main]
 async fn main() {
 

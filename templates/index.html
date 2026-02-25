@@ -3,30 +3,7 @@
 {% block title %} 🏠 Home {% endblock %}
 
 {% block content %}
-  <p> Logs </p>
-  <ul>
-      {% for log in logs %}
-          <li>{{ log.timestamp }} - {{ log.message }}</li>
-      {% else %}
-          <li>No logs available.</li>
-      {% endfor %}
-  </ul>
 
-  <ul>
-  {% for project in projects %}
-    <li>
-      <strong>{{ project.title }}</strong><br>
-      {{ project.description }}
-    </li>
-  {% else %}
-    <li>No projects yet.</li>
-  {% endfor %}
-  </ul>
+{{ readme_html}}
 
-<h2>Add a new project</h2>
-<form action="/add_project" method="post">
-  <input name="title" placeholder="Title">
-  <input name="description" placeholder="Description">
-  <button type="submit">Add</button>
-</form>
 {% endblock %}

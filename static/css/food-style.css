@@ -1,17 +1,3 @@
-.main-container {
-    display: grid;
-    grid-template-columns: 1fr 5fr;
-    gap: 1rem;
-}
-
-.filtering-sidebar {
-    display: grid;
-    grid-template-columns: 100%;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1rem;
-}
-
 #food-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
