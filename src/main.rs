@@ -9,7 +9,7 @@ mod tests;
 
 use axum::{ routing::get, Router };
 use tokio::net::TcpListener;
-use crate::handlers::{ home, food, food_detail, boardgames, resume, apps, health };
+use crate::handlers::{ home, food, food_detail, resume, health, blog, contact };
 use tower_http::services::ServeDir;
 
 #[tokio::main]
@@ -19,9 +19,9 @@ async fn main() {
         .route("/", get(home))
         .route("/food", get(food))
         .route("/food/:slug", get(food_detail))
-        .route("/boardgames", get(boardgames))
         .route("/resume", get(resume))
-        .route("/apps", get(apps))
+        .route("/blog", get(blog))
+        .route("/contact", get(contact))
         .route("/api/health", get(health))
         .nest_service("/static", ServeDir::new("static"))
         .nest_service("/media", ServeDir::new("media"));

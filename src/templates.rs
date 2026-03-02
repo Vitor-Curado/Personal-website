@@ -26,13 +26,6 @@ pub struct FoodDetailTemplate<'a> {
 }
 
 #[derive(Template)]
-#[template(path = "boardgames.html")]
-pub struct BoardgamesTemplate {
-    pub title: &'static str,
-    pub favicon: &'static str
-}
-
-#[derive(Template)]
 #[template(path = "resume.html")]
 pub struct ResumeTemplate {
     pub title: &'static str,
@@ -40,8 +33,15 @@ pub struct ResumeTemplate {
 }
 
 #[derive(Template)]
-#[template(path = "apps.html")]
-pub struct AppsTemplate {
+#[template(path = "blog.html")]
+pub struct BlogTemplate {
+    pub title: &'static str,
+    pub favicon: &'static str
+}
+
+#[derive(Template)]
+#[template(path = "contact_me.html")]
+pub struct ContactTemplate {
     pub title: &'static str,
     pub favicon: &'static str
 }

@@ -1,4 +1,4 @@
-use crate::templates::{ IndexTemplate, FoodTemplate, FoodDetailTemplate, BoardgamesTemplate, ResumeTemplate, AppsTemplate };
+use crate::templates::{ IndexTemplate, FoodTemplate, FoodDetailTemplate, ResumeTemplate, BlogTemplate, ContactTemplate };
 use axum::{ response::{ Html, IntoResponse }, extract::Path };
 use askama::Template;
 use std::fs;
@@ -73,30 +73,30 @@ pub async fn resume() -> impl IntoResponse {
     )
 }
 
-pub async fn apps() -> impl IntoResponse {
-    Html(
-        AppsTemplate {
-            title: "Software",
-            favicon: "software-icon.png"
-        }
-        .render()
-        .unwrap(),
-    )
-}
-
-pub async fn boardgames() -> impl IntoResponse {
-    Html(
-        BoardgamesTemplate {
-            title: "Board Games",
-            favicon: "boardgames-icon.png"
-        }
-        .render()
-        .unwrap(),
-    )
-}
-
 pub async fn health() -> Json<HealthResponse> {
     Json(HealthResponse {
         status: "ok",
     })
+}
+
+pub async fn blog() -> impl IntoResponse {
+    Html(
+        BlogTemplate {
+            title: "Blog",
+            favicon: "blog-icon.png"
+        }
+        .render()
+        .unwrap(),
+    )
+}
+
+pub async fn contact() -> impl IntoResponse {
+    Html(
+        ContactTemplate {
+            title: "Contact Me",
+            favicon: "contact-icon.png"
+        }
+        .render()
+        .unwrap(),
+    )
 }

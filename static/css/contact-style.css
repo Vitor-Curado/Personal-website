@@ -1,0 +1,26 @@
+main ul {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    row-gap: 5vh;
+}
+
+main ul li {
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+    padding: 0.5vh 1vw;
+    transition: background-color 0.3s ease;
+    box-shadow: 5px 5px 5px grey;
+    border-radius: 1vh;
+}
+
+main ul li:hover {
+    background-color: beige;
+    border-radius: 1vh;
+    box-shadow: 5px 5px 5px grey;
+}
+
+main ul li img {
+    width: 20%;
+    height: auto;
+}
