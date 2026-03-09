@@ -1,6 +1,7 @@
 use crate::models::Food;
 
 #[allow(clippy::too_many_lines)]
+#[must_use]
 pub fn mock_food_data() -> Vec<Food> {
     vec![
         Food {

@@ -1,0 +1,34 @@
+use pulldown_cmark::{Parser, html};
+use std::fs;
+
+use crate::models::Food;
+use crate::repository::mock_food_data;
+
+#[derive(Clone)]
+pub struct AppState {
+    pub readme_html: String,
+    pub food_data: Vec<Food>,
+}
+
+impl AppState {
+    #[must_use]
+    pub fn new() -> Self {
+        let readme_md =
+            fs::read_to_string("./readme.md").unwrap_or_else(|_| "# README not found".to_string());
+
+        let parser = Parser::new(&readme_md);
+        let mut readme_html = String::new();
+        html::push_html(&mut readme_html, parser);
+
+        Self {
+            readme_html,
+            food_data: mock_food_data(),
+        }
+    }
+}
+
+impl Default for AppState {
+    fn default() -> Self {
+        Self::new()
+    }
+}

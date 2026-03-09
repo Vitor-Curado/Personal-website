@@ -1,11 +1,4 @@
-mod api;
-mod handlers;
-mod models;
-mod repository;
-mod router;
-mod templates;
-
-use crate::router::app;
+use personal_website::router::app;
 use tokio::net::TcpListener;
 
 #[tokio::main]

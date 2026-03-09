@@ -1,3 +1,4 @@
+use crate::state::AppState;
 use axum::Router;
 use axum::routing::get;
 use tower_http::services::ServeDir;
@@ -15,5 +16,5 @@ pub fn app() -> Router {
         .route("/contact", get(contact))
         .route("/assets", get(assets))
         .nest_service("/static", ServeDir::new("static"))
-        .nest_service("/media", ServeDir::new("media"))
+        .with_state(AppState::new())
 }

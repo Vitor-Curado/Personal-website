@@ -1,60 +1,66 @@
+use crate::api::HealthResponse;
 use crate::repository::mock_food_data;
+use crate::state::AppState;
 use crate::templates::{
     AssetsTemplate, BlogTemplate, ContactTemplate, FoodDetailTemplate, FoodTemplate, IndexTemplate,
     ResumeTemplate,
 };
-use askama::Template;
+
+use axum::Json;
+use axum::extract::State;
+use axum::http::StatusCode;
 use axum::{
     extract::Path,
     response::{Html, IntoResponse},
 };
-use pulldown_cmark::{Parser, html};
-use std::fs;
 
-use crate::api::HealthResponse;
-use axum::Json;
+use askama::Template;
 
-fn load_readme() -> String {
-    fs::read_to_string("./readme.md") // relative to working dir in container
-        .unwrap_or_else(|_| "# README not found".to_string())
+pub async fn home(State(app_state): State<AppState>) -> impl IntoResponse {
+    match (IndexTemplate {
+        title: "Home",
+        favicon: "home-icon.png",
+        readme_html: app_state.readme_html.clone(),
+    })
+    .render()
+    {
+        Ok(html) => Html(html).into_response(),
+        Err(_) => (
+            axum::http::StatusCode::INTERNAL_SERVER_ERROR,
+            "Template rendering failed",
+        )
+            .into_response(),
+    }
 }
 
-fn markdown_to_html(md: &str) -> String {
-    let parser = Parser::new(md);
-    let mut output = String::new();
-    html::push_html(&mut output, parser);
-    output
-}
-
-pub async fn home() -> impl IntoResponse {
-    let readme_md = load_readme();
-    let readme_html = markdown_to_html(&readme_md);
-
-    Html(
-        IndexTemplate {
-            title: "Home",
-            favicon: "home-icon.png",
-            readme_html,
-        }
-        .render()
-        .unwrap(),
-    )
-}
-
-pub async fn food() -> impl IntoResponse {
+/// Renders the food page.
+///
+/// # Panics
+/// This function will panic if the template rendering fails.
+pub async fn food(State(app_state): State<AppState>) -> impl IntoResponse {
     let template = FoodTemplate {
         title: "Food",
         favicon: "food-icon.png",
-        foods: mock_food_data(),
+        foods: app_state.food_data.clone(),
     };
 
     Html(template.render().unwrap())
 }
 
-pub async fn food_detail(Path(slug): Path<String>) -> impl IntoResponse {
+/// Renders the food detail page for a given slug.
+/// # Arguments
+/// * `slug` - The slug of the food item to display details for.
+/// # Errors
+/// Returns a `StatusCode::NOT_FOUND` if no food item matches the provided slug.
+/// # Panics
+/// This function will panic if the template rendering fails.
+pub async fn food_detail(Path(slug): Path<String>) -> Result<Html<String>, StatusCode> {
     let foods = mock_food_data();
 
-    let food = foods.iter().find(|f| f.slug == slug).unwrap();
+    let food = foods
+        .iter()
+        .find(|f| f.slug == slug)
+        .ok_or(StatusCode::NOT_FOUND)?;
 
     let template = FoodDetailTemplate {
         title: food.title.to_string(),
@@ -62,9 +68,12 @@ pub async fn food_detail(Path(slug): Path<String>) -> impl IntoResponse {
         food,
     };
 
-    Html(template.render().unwrap())
+    Ok(Html(template.render().unwrap()))
 }
 
+/// Renders the resume page.
+/// # Panics
+/// This function will panic if the template rendering fails.
 pub async fn resume() -> impl IntoResponse {
     Html(
         ResumeTemplate {
@@ -76,10 +85,16 @@ pub async fn resume() -> impl IntoResponse {
     )
 }
 
+/// Returns a JSON response indicating the health status of the application.
+/// # Panics
+/// This function will panic if the template rendering fails.
 pub async fn health() -> Json<HealthResponse> {
     Json(HealthResponse { status: "ok" })
 }
 
+/// Renders the blog page.
+/// # Panics
+/// This function will panic if the template rendering fails.
 pub async fn blog() -> impl IntoResponse {
     Html(
         BlogTemplate {
@@ -91,6 +106,9 @@ pub async fn blog() -> impl IntoResponse {
     )
 }
 
+/// Renders the contact page.
+/// # Panics
+/// This function will panic if the template rendering fails.
 pub async fn contact() -> impl IntoResponse {
     Html(
         ContactTemplate {
@@ -102,6 +120,9 @@ pub async fn contact() -> impl IntoResponse {
     )
 }
 
+/// Renders the assets page.
+/// # Panics
+/// This function will panic if the template rendering fails.
 pub async fn assets() -> impl IntoResponse {
     Html(
         AssetsTemplate {
@@ -111,14 +132,4 @@ pub async fn assets() -> impl IntoResponse {
         .render()
         .unwrap(),
     )
-}
-
-// Unit tests
-#[test]
-fn converts_multiple_markdown_features() {
-    let input = "# Title\n\n**Bold** text";
-    let html = markdown_to_html(input);
-
-    assert!(html.contains("<h1>Title</h1>"));
-    assert!(html.contains("<strong>Bold</strong>"));
 }

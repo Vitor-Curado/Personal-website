@@ -27,7 +27,7 @@ The project uses server-side rendering with Askama, runs inside containers with 
 * **Server OS:** Fedora Linux
 * **Reverse proxy:** Nginx
 * **Container engine:** Podman
-* **Container orchestration:** Docker Compose
+* **Container orchestration:** Podman Compose
 
 ## CI / Tooling
 
@@ -67,13 +67,14 @@ Browser
 
 # 🧩 Project Modules
 
-* **main.rs** — server startup and routing
+* **main.rs** — server startup
+* **router.rs** — routing
 * **handlers.rs** — request handlers
 * **models.rs** — domain data structures
 * **templates.rs** — Askama template bindings
 * **data.rs** — mock data provider
 * **api.rs** — JSON response types
-* **tests.rs** — unit and integration tests
+* **tests.rs** — integration tests
 
 ---
 
@@ -87,6 +88,7 @@ Browser
 │   ├── main.rs
 │   ├── models.rs
 │   ├── repository.rs
+│   ├── router.rs
 │   ├── templates.rs
 │   └── tests.rs
 │
@@ -116,11 +118,8 @@ Browser
 │       └── languages
 │
 ├── scripts
-│   └── deploy.sh
-│
-├── docs
-│   ├── architecture.md
-│   └── features.md
+│   ├── deploy.sh
+│   └── check.sh
 │
 ├── Dockerfile
 ├── docker-compose.yml
@@ -135,6 +134,7 @@ Browser
 
 # ✨ Features
 
+* JS-free, div-free
 * Containerized deployment with Podman
 * Server-side rendered pages with Askama
 * Static assets (CSS, images)
