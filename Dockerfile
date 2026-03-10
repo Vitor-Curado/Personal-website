@@ -20,13 +20,9 @@ COPY . .
 RUN cargo build --release
 
 # ---------- Runtime stage ----------
-FROM debian:bookworm-slim
-WORKDIR /app
+FROM gcr.io/distroless/cc-debian12
 
-RUN apt-get update && apt-get install -y \
-    ca-certificates \
-    libssl3 \
-    && rm -rf /var/lib/apt/lists/*
+WORKDIR /app
 
 COPY --from=builder /app/target/release/personal-website .
 
@@ -34,10 +30,8 @@ COPY templates ./templates
 COPY static ./static
 COPY readme.md ./readme.md
 
+USER nonroot:nonroot
+
 EXPOSE 3000
 
 CMD ["./personal-website"]
-
-# -- ---------- Healthcheck ----------
-HEALTHCHECK --interval=30s --timeout=3s \
-  CMD curl -f http://localhost:3000/health || exit 1

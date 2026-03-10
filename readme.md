@@ -1,7 +1,7 @@
 # 📘 Victor's Personal Website
 
-**Version:** 0.2
-**Last updated:** March 8, 2026
+**Version:** 0.3
+**Last updated:** March 10, 2026
 
 A small Rust web application serving my personal website.
 The project uses server-side rendering with Askama, runs inside containers with Podman, and is deployed on a Fedora Linux server behind Nginx.
@@ -16,11 +16,13 @@ The project uses server-side rendering with Askama, runs inside containers with 
 * **Web framework:** Axum
 * **Async runtime:** Tokio
 * **Server-side templating:** Askama
+* **Serialization:** Serde
 
 ## Frontend
 
 * HTML
 * Raw CSS (no frameworks)
+* Fully server-rendered pages
 
 ## Infrastructure
 
@@ -28,6 +30,7 @@ The project uses server-side rendering with Askama, runs inside containers with 
 * **Reverse proxy:** Nginx
 * **Container engine:** Podman
 * **Container orchestration:** Podman Compose
+* **Container runtime:** Distroless
 
 ## CI / Tooling
 
@@ -35,10 +38,13 @@ The project uses server-side rendering with Askama, runs inside containers with 
 * **Formatting:** `cargo fmt`
 * **Linting:** `cargo clippy --pedantic`
 * **Tests:** `cargo test`
+* **Container builds:** Multi-stage Dockerfile with `cargo chef`
 
 ## Supporting Assets
 
 * Static media files
+* HTML templates
+* CSS stylesheets
 * Shell scripts for deployment and maintenance
 
 ---
@@ -54,7 +60,7 @@ Axum Router
    ↓
 Request Handler
    ↓
-Data Layer
+Application State
    ↓
 Askama Template
    ↓
@@ -67,13 +73,17 @@ Browser
 
 # 🧩 Project Modules
 
-* **main.rs** — server startup
-* **router.rs** — routing
-* **handlers.rs** — request handlers
+* **api.rs** — JSON response structures (API responses)
+* **config.rs** — environment-based application configuration 
+* **handlers.rs** — HTTP request handlers
+* **lib.rs** — crate module declarations
+* **main.rs** — server initialization and runtime setup
 * **models.rs** — domain data structures
+* **repository.rs** — mock data provider
+* **router.rs** — Axum router configuration
+* **state.rs** — shared application state
 * **templates.rs** — Askama template bindings
-* **data.rs** — mock data provider
-* **api.rs** — JSON response types
+* **utils.rs** — utility helpers (markdown conversion, file loading)
 * **tests.rs** — integration tests
 
 ---
@@ -84,24 +94,30 @@ Browser
 .
 ├── src
 │   ├── api.rs
+│   ├── config.rs
 │   ├── handlers.rs
+│   ├── lib.rs
 │   ├── main.rs
 │   ├── models.rs
 │   ├── repository.rs
 │   ├── router.rs
+│   ├── state.rs
 │   ├── templates.rs
+│   └── utils.rs
+│
+├── tests
 │   └── tests.rs
 │
 ├── templates
+│   ├── apps.html
+│   ├── assets.html
 │   ├── base.html
-│   ├── index.html
 │   ├── blog.html
 │   ├── boardgames.html
-│   ├── food.html
-│   ├── food_detail.html
-│   ├── assets.html
-│   ├── apps.html
 │   ├── contact_me.html
+│   ├── food_detail.html
+│   ├── food.html
+│   ├── index.html
 │   └── resume.html
 │
 ├── static
@@ -134,12 +150,50 @@ Browser
 
 # ✨ Features
 
-* JS-free, div-free
-* Containerized deployment with Podman
-* Server-side rendered pages with Askama
-* Static assets (CSS, images)
-* Unit testing
-* Integration testing
+**Server Architecture**
+* Server-side rendered HTML using Askama templates
+* Modular Axum router and handler architecture
+* Shared application state container
+* Environment-driven configuration
+
+**Performance**
+* Gzip compression for HTTP responses
+* Efficient static file serving
+* Support for pre-compressed static assets
+* Multi-stage container builds with cargo-chef for faster rebuilds
+* JavaScript-free
+
+**Observability**
+* Structured request tracing via tower-http
+* Configurable logging through tracing and RUST_LOG
+
+**Security**
+* Secure HTTP headers:
+   * X-Frame-Options
+   * X-Content-Type-Options
+   * Referrer-Policy
+* Distroless container runtime for reduced attack surface
+
+**Infrastructure**
+* Containerized deployment using Podman
+* Orchestrated with Podman Compose
+* Reverse-proxied through Nginx
+* Automated deployment using Woodpecker CI
+
+**API**
+* JSON health check endpoint
+`GET /health`
+* Returns service metadata and runtime status.
+
+**Content System**
+* Markdown rendering using pulldown-cmark
+* README content dynamically rendered on the homepage
+* Structured content models (example: food database)
+
+**Testing**
+* Unit tests
+* Integration tests
+* Automated verification via CI pipeline
 
 ---
 
@@ -147,6 +201,19 @@ Browser
 
 Planned improvements:
 
-* Introduce shared **AppState**
-* Add a **database layer**
-* Implement a `/health` endpoint
+**Content**
+* Populate blog and project sections
+* Expand content models
+
+**Back-end**
+* Add a database layer
+* Replace mock repositories with persistent storage
+* Introduce authentication and user sessions
+
+**Front-end**
+* Build a modular CSS system
+* Improve layout and typography
+* Introduce reusable UI components
+
+**Internationalization**
+* Multi-language support
