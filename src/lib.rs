@@ -1,4 +1,5 @@
 pub mod api;
+pub mod config;
 pub mod handlers;
 pub mod models;
 pub mod repository;
@@ -6,4 +7,3 @@ pub mod router;
 pub mod state;
 pub mod templates;
 pub mod utils;
-pub mod config;

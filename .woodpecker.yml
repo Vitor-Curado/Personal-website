@@ -13,7 +13,7 @@ pipeline:
       username: root
       key:
         from_secret: ssh_key
-        script:
-          - cd /srv/Personal-website
-          - git pull
-          - podman compose up -d --build
+      script:
+        - cd /srv/Personal-website
+        - git pull
+        - podman compose up -d --build

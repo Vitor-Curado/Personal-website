@@ -14,6 +14,7 @@ use axum::{
 
 use askama::Template;
 
+#[allow(clippy::needless_pass_by_value)]
 pub fn render_template<T: Template>(t: T) -> Response {
     match t.render() {
         Ok(html) => Html(html).into_response(),
@@ -29,7 +30,7 @@ pub async fn home(State(app_state): State<AppState>) -> impl IntoResponse {
     render_template(IndexTemplate {
         title: "Home",
         favicon: "home-icon.png",
-        readme_html: app_state.readme_html.clone()
+        readme_html: app_state.readme_html.clone(),
     })
 }
 
@@ -41,7 +42,7 @@ pub async fn food(State(app_state): State<AppState>) -> impl IntoResponse {
     render_template(FoodTemplate {
         title: "Food",
         favicon: "food-icon.png",
-        foods: app_state.food_data.clone()
+        foods: app_state.food_data.clone(),
     })
 }
 
@@ -49,15 +50,14 @@ pub async fn food_detail(
     Path(slug): Path<String>,
     State(state): State<AppState>,
 ) -> impl IntoResponse {
-    let food = match state.food_data.iter().find(|f| f.slug == slug) {
-        Some(food) => food,
-        None => return StatusCode::NOT_FOUND.into_response(),
+    let Some(food) = state.food_data.iter().find(|f| f.slug == slug) else {
+        return StatusCode::NOT_FOUND.into_response();
     };
 
     render_template(FoodDetailTemplate {
         title: food.title.to_string(),
         favicon: "food-detail-icon.png",
-        food
+        food,
     })
 }
 
@@ -75,7 +75,11 @@ pub async fn resume() -> impl IntoResponse {
 /// # Panics
 /// This function will panic if the template rendering fails.
 pub async fn health() -> Json<HealthResponse> {
-    Json(HealthResponse { status: "ok" })
+    Json(HealthResponse {
+        status: "ok",
+        service: "personal-website",
+        version: env!("CARGO_PKG_VERSION"),
+    })
 }
 
 /// Renders the blog page.

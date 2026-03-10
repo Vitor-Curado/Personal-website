@@ -1,15 +1,26 @@
-# ---------- Build stage ----------
-FROM rust:latest AS builder
-
+# ---------- Planner stage ----------
+FROM rust:latest AS planner
 WORKDIR /app
 
-COPY . .
+RUN cargo install cargo-chef
 
+COPY . .
+RUN cargo chef prepare --recipe-path recipe.json
+
+# ---------- Builder stage ----------
+FROM rust:latest AS builder
+WORKDIR /app
+
+RUN cargo install cargo-chef
+
+COPY --from=planner /app/recipe.json recipe.json
+RUN cargo chef cook --release --recipe-path recipe.json
+
+COPY . .
 RUN cargo build --release
 
 # ---------- Runtime stage ----------
 FROM debian:bookworm-slim
-
 WORKDIR /app
 
 RUN apt-get update && apt-get install -y \
@@ -17,7 +28,7 @@ RUN apt-get update && apt-get install -y \
     libssl3 \
     && rm -rf /var/lib/apt/lists/*
 
-COPY --from=builder /app/target/release/personal-website /app/personal-website
+COPY --from=builder /app/target/release/personal-website .
 
 COPY templates ./templates
 COPY static ./static
@@ -27,5 +38,6 @@ EXPOSE 3000
 
 CMD ["./personal-website"]
 
-# podman build --no-cache -t personal-website .
-# podman run -it --rm -p 3000:3000 personal-website
+# -- ---------- Healthcheck ----------
+HEALTHCHECK --interval=30s --timeout=3s \
+  CMD curl -f http://localhost:3000/health || exit 1
