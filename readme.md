@@ -122,11 +122,17 @@ Browser
 │
 ├── static
 │   ├── css
-│   │   ├── base-style.css
-│   │   ├── contact-style.css
-│   │   ├── food-style.css
-│   │   ├── food-detail-style.css
-│   │   └── resume-style.css
+│   │   ├── pages
+│   │   │   ├── contact.css
+│   │   │   ├── food.css
+│   │   │   ├── food-detail.css
+│   │   │   └── resume.css
+│   │   ├── base.css
+│   │   ├── components.css
+│   │   ├── dropdown.css
+│   │   ├── layout.css
+│   │   ├── navbar.css
+│   │   └── variables.css
 │   │
 │   └── media
 │       ├── food

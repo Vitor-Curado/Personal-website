@@ -28,7 +28,7 @@ pub fn render_template<T: Template>(t: T) -> Response {
 
 pub async fn home(State(app_state): State<AppState>) -> impl IntoResponse {
     render_template(IndexTemplate {
-        title: "Home",
+        title: "Buildhaven",
         favicon: "home-icon.png",
         readme_html: app_state.readme_html.clone(),
     })
