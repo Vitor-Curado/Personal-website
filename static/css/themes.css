@@ -1,0 +1,39 @@
+[data-theme="night"] {
+  --color-900: #020617;
+  --color-700: #1e293b;
+  --color-600: #2563eb;
+  --color-500: #3b82f6;
+  --color-300: #475569;
+  --color-200: #64748b;
+  --color-100: #e2e8f0;
+}
+
+[data-theme="forest"] {
+  --color-900: #041b13;
+  --color-700: #1b4332;
+  --color-600: #2f7a57;
+  --color-500: #40916c;
+  --color-300: #5fae86;
+  --color-200: #8fd3ad;
+  --color-100: #d8f3dc;
+}
+
+[data-theme="ocean"] {
+  --color-900: #001d3d;
+  --color-700: #003566;
+  --color-600: #0077b6;
+  --color-500: #0096c7;
+  --color-300: #48cae4;
+  --color-200: #90e0ef;
+  --color-100: #caf0f8;
+}
+
+[data-theme="sunset"] {
+  --color-900: #7c2d12;
+  --color-700: #9a3412;
+  --color-600: #ea580c;
+  --color-500: #f97316;
+  --color-300: #fb923c;
+  --color-200: #fdba74;
+  --color-100: #fff7ed;
+}

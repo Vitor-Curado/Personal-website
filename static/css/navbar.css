@@ -1,7 +1,4 @@
-/* =========================
-   Navbar container
-   ========================= */
-
+/* Navbar container */
 .navbar {
   display: flex;
   background-color: var(--color-navbar);
@@ -16,10 +13,7 @@
 }
 
 
-/* =========================
-   Navbar list
-   ========================= */
-
+/* Navbar list */
 .navbar-list {
   list-style: none;
 
@@ -32,11 +26,7 @@
   padding: 0;
 }
 
-
-/* =========================
-   Navbar links
-   ========================= */
-
+/* Navbar links */
 .navbar-link,
 .dropdown-button {
 
@@ -53,20 +43,38 @@
   cursor: pointer;
 }
 
-
 /* Hover state */
-
 .navbar-link:hover,
 .dropdown-button:hover {
   color: var(--color-accent);
 }
 
 
-/* =========================
-   Navbar icons
-   ========================= */
-
+/* Navbar icons */
 .navbar-icon {
   height: 1.15em;
   object-fit: contain;
+}
+
+.dropdown-link {
+
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-extra-small);
+
+  width: 100%;
+
+  padding: var(--spacing-extra-small) var(--spacing-medium);
+
+  background: none;
+  border: none;
+
+  color: var(--color-text);
+  cursor: pointer;
+  text-align: left;
+
+}
+
+.dropdown-link:hover {
+  background: var(--color-surface-hover);
 }

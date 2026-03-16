@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+set -euo pipefail
 
 cd /srv/Personal-website
 
@@ -7,16 +7,13 @@ echo "Updating repository..."
 git fetch origin
 git reset --hard origin/main
 
-echo "Stopping current containers..."
-podman compose down
-
 echo "Building new image..."
-podman compose build --pull
+podman build -t localhost/personal-website_web .
 
-echo "Starting containers..."
-podman compose up -d
+echo "Restarting service..."
+systemctl restart container-personal-website
 
 echo "Cleaning unused images..."
-podman image prune -f
+podman image prune -af
 
 echo "Deployment complete."

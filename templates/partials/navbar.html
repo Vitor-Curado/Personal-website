@@ -12,21 +12,31 @@
                 Leisure
             </button>
             <ul class="dropdown-menu">
-
                 <li>
-                    <a class="dropdown-link" href="/leisure/games">
-                        <img class="navbar-icon" src="/static/media/icons/games-icon.png" alt="">
-                        Games
-                    </a>
+                    <button class="dropdown-link" onclick="setTheme('sunset')">
+                        <img src="/static/media/themes/sun-theme.png" alt="" class="navbar-icon">
+                        Sunset
+                    </button>
+                </li>
+                <li>
+                    <button class="dropdown-link" onclick="setTheme('night')">
+                        <img src="/static/media/themes/night-theme.png" alt="" class="navbar-icon">
+                        Night
+                    </button>
+                </li>
+                <li>
+                    <button class="dropdown-link" onclick="setTheme('ocean')">
+                        <img class="navbar-icon" src="/static/media/themes/ocean-theme.png" alt="">
+                        Ocean
+                    </button>
                 </li>
 
                 <li>
-                    <a class="dropdown-link" href="/leisure/movies">
-                        <img class="navbar-icon" src="/static/media/icons/movies-icon.png" alt="">
-                        Movies
-                    </a>
+                    <button class="dropdown-link" href="/leisure/movies" onclick="setTheme('forest')">
+                        <img class="navbar-icon" src="/static/media/themes/forest-theme.png" alt="">
+                        Forest
+                    </button>
                 </li>
-
             </ul>
         </li>
         <li class="navbar-item">

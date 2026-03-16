@@ -11,7 +11,7 @@ use tower_http::trace::TraceLayer;
 pub fn app() -> Router {
     let static_service = ServeDir::new("static").precompressed_gzip();
 
-    Router::new()
+    let public_routes = Router::new()
         .route("/", get(home))
         .route("/health", get(health))
         .route("/food", get(food))
@@ -19,7 +19,10 @@ pub fn app() -> Router {
         .route("/resume", get(resume))
         .route("/blog", get(blog))
         .route("/contact", get(contact))
-        .route("/assets", get(assets))
+        .route("/assets", get(assets));
+
+    Router::new()
+        .nest("/", public_routes)
         .nest_service("/static", static_service)
         .layer(CompressionLayer::new())
         .layer(TraceLayer::new_for_http())

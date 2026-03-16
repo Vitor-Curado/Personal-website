@@ -1,69 +1,62 @@
 :root {
+   /* Surfaces */
+   --color-background: var(--color-100);
+   --color-surface: var(--color-200);
+   --color-surface-hover: var(--color-300); 
 
-  /* =========================
-     Palette
-     ========================= */
+   /* Text */
+   --color-text: var(--color-900);
+   --color-muted-text: var(--color-700);
 
-  --slate-900: #1f2933;
-  --slate-700: #3e4c59;
-  --slate-200: #e4e7eb;
-  --slate-100: #f5f7fa;
+   /* Accents */
+   --color-accent: var(--color-500);
+   --color-accent-hover: var(--color-600);
 
-  --blue-500: #3b82f6;
-  --blue-600: #2563eb;
+   /* Structure */
+   --color-navbar: var(--color-200);
+   --color-border: var(--color-300);
+   --color-focus: var(--color-500);
+   --color-overlay: rgba(0,0,0,0.5);
 
-
-  /* =========================
-     Semantic roles
-     ========================= */
-
-  --color-background: var(--slate-100);
-  --color-surface: #ffffff;
-
-  --color-text: var(--slate-900);
-  --color-muted-text: var(--slate-700);
-
-  --color-navbar: var(--slate-200);
-
-  --color-accent: var(--blue-500);
-  --color-accent-hover: var(--blue-600);
+   /* Spacing scale */
+   --spacing-extra-small: 0.25rem;
+   --spacing-small: 0.5rem;
+   --spacing-medium: 1rem;
+   --spacing-extra-medium: 1.5rem;
+   --spacing-large: 2rem;
+   --spacing-extra-large: 3rem;
 
 
-  /* =========================
-     Spacing scale
-     ========================= */
+   /* =========================
+      Border radius
+      ========================= */
 
-  --spacing-extra-small: 0.25rem;
-  --spacing-small: 0.5rem;
-  --spacing-medium: 1rem;
-  --spacing-extra-medium: 1.5rem;
-  --spacing-large: 2rem;
-  --spacing-extra-large: 3rem;
+   --radius-small: 4px;
+   --radius-medium: 8px;
+   --radius-large: 12px;
 
 
-  /* =========================
-     Border radius
-     ========================= */
+   /* =========================
+      Shadows
+      ========================= */
 
-  --radius-small: 4px;
-  --radius-medium: 8px;
-  --radius-large: 12px;
+   --shadow-soft: 0 2px 6px rgba(0,0,0,0.08);
+   --shadow-medium: 0 4px 12px rgba(0,0,0,0.12);
 
-
-  /* =========================
-     Shadows
-     ========================= */
-
-  --shadow-soft: 0 2px 6px rgba(0,0,0,0.08);
-  --shadow-medium: 0 4px 12px rgba(0,0,0,0.12);
-
-  /* =========================
-     Font sizes
-     ========================= */
+   /* =========================
+      Font sizes
+      ========================= */
 
    --font-size-small: 0.875rem;
    --font-size-medium: 1rem;
    --font-size-large: 1.25rem;
    --font-size-title: 1.5rem;
-   
+
+   /* =========================
+      Transition
+      ========================= */
+
+   --transition-fast: 0.15s ease;
+   --transition-medium: 0.25s ease;
+
 }
