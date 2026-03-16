@@ -24,8 +24,6 @@ pub fn app() -> Router {
     Router::new()
         .nest("/", public_routes)
         .nest_service("/static", static_service)
-        .layer(CompressionLayer::new())
-        .layer(TraceLayer::new_for_http())
         .layer(SetResponseHeaderLayer::if_not_present(
             HeaderName::from_static("cache-control"),
             HeaderValue::from_static("public, max-age=86400"),
@@ -56,5 +54,11 @@ pub fn app() -> Router {
                 "camera=(), microphone=(), geolocation=(), payment=(), usb=(), accelerometer=(), gyroscope=(), magnetometer=()"
             ),
         ))
+        .layer(SetResponseHeaderLayer::if_not_present(
+            HeaderName::from_static("cross-origin-resource-policy"),
+            HeaderValue::from_static("same-origin"),
+        ))
+        .layer(TraceLayer::new_for_http())
+        .layer(CompressionLayer::new())
         .with_state(AppState::new())
 }
