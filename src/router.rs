@@ -1,8 +1,7 @@
-use crate::handlers::{assets, blog, contact, food, food_detail, health, home, resume};
+use crate::routes::public_routes;
 use crate::state::AppState;
 use axum::Router;
 use axum::http::header::{HeaderName, HeaderValue};
-use axum::routing::get;
 use tower_http::compression::CompressionLayer;
 use tower_http::services::ServeDir;
 use tower_http::set_header::SetResponseHeaderLayer;
@@ -10,16 +9,7 @@ use tower_http::trace::TraceLayer;
 
 pub fn app() -> Router {
     let static_service = ServeDir::new("static").precompressed_gzip();
-
-    let public_routes = Router::new()
-        .route("/", get(home))
-        .route("/health", get(health))
-        .route("/food", get(food))
-        .route("/food/:slug", get(food_detail))
-        .route("/resume", get(resume))
-        .route("/blog", get(blog))
-        .route("/contact", get(contact))
-        .route("/assets", get(assets));
+    let public_routes = public_routes();
 
     Router::new()
         .nest("/", public_routes)
@@ -62,3 +52,27 @@ pub fn app() -> Router {
         .layer(CompressionLayer::new())
         .with_state(AppState::new())
 }
+
+/*
+use axum::Router;
+use tower_http::services::ServeDir;
+
+use crate::state::AppState;
+use crate::routes::public_routes;
+use crate::middleware::apply_middleware;
+use crate::security::apply_security_headers;
+
+pub fn app() -> Router {
+    let static_service = ServeDir::new("static").precompressed_gzip();
+
+    let router = Router::new()
+        .nest("/", public_routes())
+        .nest_service("/static", static_service)
+        .with_state(AppState::new());
+
+    let router = apply_security_headers(router);
+    let router = apply_middleware(router);
+
+    router
+}
+*/
